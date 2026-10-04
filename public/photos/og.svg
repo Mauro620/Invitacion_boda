@@ -1,19 +1,19 @@
 <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="ogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f5f2ee;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e8dcc8;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#efe3d0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ddc6a6;stop-opacity:1" />
     </linearGradient>
     <radialGradient id="ogGlow" cx="50%" cy="40%">
-      <stop offset="0%" style="stop-color:#b39d54;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#7fa882;stop-opacity:0.1" />
+      <stop offset="0%" style="stop-color:#a8803f;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#b8694a;stop-opacity:0.1" />
     </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#ogGrad)"/>
   <circle cx="600" cy="250" r="200" fill="url(#ogGlow)"/>
-  <path d="M600 150 Q650 180 650 250 Q650 320 600 350 Q550 320 550 250 Q550 180 600 150" fill="#b39d54" opacity="0.25"/>
-  <circle cx="250" cy="450" r="80" fill="#7fa882" opacity="0.15"/>
-  <circle cx="950" cy="480" r="95" fill="#b39d54" opacity="0.12"/>
-  <text x="600" y="420" font-family="serif" font-size="64" font-weight="300" text-anchor="middle" fill="#4a3e3a" letter-spacing="3">Invitación</text>
-  <text x="600" y="520" font-family="serif" font-size="32" text-anchor="middle" fill="#7fa882" opacity="0.7">Te invitamos a celebrar</text>
+  <path d="M600 150 Q650 180 650 250 Q650 320 600 350 Q550 320 550 250 Q550 180 600 150" fill="#a8803f" opacity="0.25"/>
+  <circle cx="250" cy="450" r="80" fill="#b8694a" opacity="0.15"/>
+  <circle cx="950" cy="480" r="95" fill="#a8803f" opacity="0.12"/>
+  <text x="600" y="420" font-family="serif" font-size="64" font-weight="300" text-anchor="middle" fill="#4a3226" letter-spacing="3">Invitación</text>
+  <text x="600" y="520" font-family="serif" font-size="32" text-anchor="middle" fill="#b8694a" opacity="0.7">Te invitamos a celebrar</text>
 </svg>

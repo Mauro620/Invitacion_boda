@@ -8,12 +8,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const directions = [
-  { id: "classic", label: "Romántico clásico", script: true },
-  { id: "boho", label: "Jardín boho", script: true },
-  { id: "editorial", label: "Minimal editorial", script: false },
-] as const;
-
 const tokens = [
   "paper",
   "paper-deep",
@@ -44,11 +38,11 @@ function Cover() {
   );
 }
 
-function Block({ id, label, script }: (typeof directions)[number]) {
+function Block() {
   return (
-    <section id={id} data-direction={id} className="paper pb-xl">
+    <section className="paper pb-xl">
       <h2 className="sticky top-0 z-20 border-b border-line bg-paper-deep px-gutter py-2xs text-xs text-ink-soft">
-        {label} · {id}
+        Jardín boho
       </h2>
 
       <div className="flex flex-col gap-l px-gutter pt-m">
@@ -63,7 +57,7 @@ function Block({ id, label, script }: (typeof directions)[number]) {
 
         <div className="flex flex-col gap-xs overflow-hidden">
           <p className="display text-3xl">{partnerA}</p>
-          {script && <p className="font-script text-3xl text-accent">{partnerB}</p>}
+          <p className="font-script text-3xl text-accent">{partnerB}</p>
           <p className="font-body">{wedding.quote}</p>
           {steps.map((s) => (
             <p key={s} className="display flex items-baseline gap-xs leading-none text-ink" style={{ fontSize: `var(--step-${s})` }}>
@@ -106,9 +100,7 @@ function Block({ id, label, script }: (typeof directions)[number]) {
 export default function Styleguide() {
   return (
     <main className="bg-table">
-      {directions.map((d) => (
-        <Block key={d.id} {...d} />
-      ))}
+      <Block />
     </main>
   );
 }

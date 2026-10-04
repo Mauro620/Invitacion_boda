@@ -157,7 +157,7 @@ Todo el contenido real entra por **un solo archivo**. Durante el mockup se usan 
 
 ```ts
 export const wedding = {
-  couple: { partnerA: "TODO:Nombre A", partnerB: "TODO:Nombre B", hashtag: "#TODO" },
+  couple: { partnerA: "Violeta", partnerB: "David", hashtag: "#TODO" },
   date: { iso: "2027-01-01T16:00:00-05:00", /* TODO: fecha real */ timezone: "America/Bogota" },
   quote: "Y de pronto, todo tuvo sentido.",          // copy placeholder emotivo
   story: [ { year: "TODO", title: "Cómo nos conocimos", text: "…", photo: "/photos/story-1.svg" } ],

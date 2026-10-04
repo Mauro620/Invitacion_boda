@@ -1,13 +1,11 @@
 /*
- * Design tokens for the three mockup directions.
- * Switch with data-direction="classic|boho|editorial" on any wrapper.
- * :root falls back to "classic" so unwrapped pages still render on-brand.
+ * Design tokens: boho direction (chosen). Alegreya + Mrs Saint Delafield.
  *
- * Font family variables (--font-eb-garamond, ...) come from next/font in
+ * Font family variables (--font-alegreya, ...) come from next/font in
  * src/app/layout.tsx. Tailwind utilities are mapped in src/app/globals.css.
  */
 
-/* ---------- Shared (direction-independent) ---------- */
+/* ---------- Shared (type, space, motion) ---------- */
 :root {
   /* Fluid type scale. Mobile ratio 1.25 (390px) -> desktop ratio ~1.333 (1280px). */
   --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
@@ -18,7 +16,7 @@
   --step-4: clamp(2.6rem, 2.15rem + 1.85vw, 3.75rem);
   --step-5: clamp(3.25rem, 2.5rem + 3vw, 5rem);
   --step-6: clamp(4.06rem, 2.9rem + 4.75vw, 6.66rem);
-  --step-7: clamp(5.08rem, 3.2rem + 7.7vw, 9.5rem); /* hero names, editorial display */
+  --step-7: clamp(5.08rem, 3.2rem + 7.7vw, 9.5rem); /* hero names */
 
   --leading-tight: 1.05;
   --leading-snug: 1.25;
@@ -62,44 +60,8 @@
   }
 }
 
-/* ---------- 1. Romántico clásico: cream, old gold, sage ---------- */
-:root,
-[data-direction="classic"] {
-  --type-display: var(--font-eb-garamond), "Garamond", serif;
-  --type-body: var(--font-eb-garamond), "Garamond", serif;
-  --type-script: var(--font-pinyon-script), cursive;
-  --display-weight: 400;
-  --display-tracking: -0.01em;
-  --display-case: none;
-
-  --paper: oklch(96.5% 0.018 85); /* warm cream stock */
-  --paper-deep: oklch(92.5% 0.026 82); /* envelope inside, quiet panels */
-  --table: oklch(84% 0.03 78); /* desktop backdrop: linen tablecloth */
-  --ink: oklch(27% 0.025 60); /* sepia-brown ink, never black */
-  --ink-soft: oklch(45% 0.025 65);
-  --accent: oklch(52% 0.06 140); /* sage, deepened for text contrast */
-  --accent-soft: oklch(78% 0.045 135);
-  --metal: oklch(70% 0.105 80); /* old gold: ornament, rules, seal rim */
-  --metal-ink: oklch(48% 0.085 75); /* gold dark enough for text >=4.5:1 */
-  --seal: oklch(42% 0.12 25); /* oxblood wax */
-  --line: oklch(80% 0.035 80);
-  --focus: oklch(48% 0.085 75);
-
-  --round-s: 2px;
-  --round-m: 4px;
-  --round-l: 8px;
-  --round-full: 999px;
-
-  --shadow-color: 40deg 30% 30%;
-  --elev-paper: 0 1px 1px hsl(var(--shadow-color) / 0.08), 0 4px 10px hsl(var(--shadow-color) / 0.08);
-  --elev-lifted: 0 2px 3px hsl(var(--shadow-color) / 0.1), 0 14px 32px -8px hsl(var(--shadow-color) / 0.22);
-  --elev-letter: 0 4px 6px hsl(var(--shadow-color) / 0.1), 0 30px 60px -20px hsl(var(--shadow-color) / 0.35);
-
-  --grain-opacity: 0.22;
-}
-
-/* ---------- 2. Jardín boho: terracotta, sand, dried flowers ---------- */
-[data-direction="boho"] {
+/* ---------- Jardín boho: terracotta, sand, dried flowers ---------- */
+:root {
   --type-display: var(--font-alegreya), "Georgia", serif;
   --type-body: var(--font-alegreya), "Georgia", serif;
   --type-script: var(--font-mrs-saint-delafield), cursive;
@@ -133,44 +95,8 @@
   --grain-opacity: 0.32;
 }
 
-/* ---------- 3. Minimal editorial: ivory, ink black, one burgundy accent ---------- */
-[data-direction="editorial"] {
-  --type-display: var(--font-italiana), "Didot", serif;
-  --type-body: var(--font-hanken-grotesk), system-ui, sans-serif;
-  --type-script: var(--font-italiana), serif; /* no script in this direction */
-  --display-weight: 400;
-  --display-tracking: 0.02em;
-  --display-case: uppercase;
-
-  --paper: oklch(97.5% 0.008 90); /* ivory gallery wall */
-  --paper-deep: oklch(94.5% 0.01 88);
-  --table: oklch(90% 0.01 85); /* pale stone */
-  --ink: oklch(19% 0.008 60); /* ink black, warm-tinted */
-  --ink-soft: oklch(42% 0.008 60);
-  --accent: oklch(40% 0.13 15); /* burgundy, the single accent (<=10%) */
-  --accent-soft: oklch(85% 0.035 15);
-  --metal: oklch(40% 0.13 15); /* burgundy replaces metal here */
-  --metal-ink: oklch(40% 0.13 15);
-  --seal: oklch(36% 0.12 15);
-  --line: oklch(19% 0.008 60 / 0.18);
-  --focus: oklch(40% 0.13 15);
-
-  --round-s: 0;
-  --round-m: 0;
-  --round-l: 0;
-  --round-full: 999px;
-
-  --shadow-color: 40deg 15% 20%;
-  --elev-paper: 0 1px 0 hsl(var(--shadow-color) / 0.06);
-  --elev-lifted: 0 20px 40px -24px hsl(var(--shadow-color) / 0.25);
-  --elev-letter: 0 40px 80px -40px hsl(var(--shadow-color) / 0.3);
-
-  --grain-opacity: 0.1;
-}
-
 /* ---------- Base application of tokens ---------- */
-:root,
-[data-direction] {
+:root {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--type-body);

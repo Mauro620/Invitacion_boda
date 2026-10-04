@@ -2,7 +2,7 @@
 @import "../styles/tokens.css";
 
 /* Map design tokens to Tailwind utilities. `inline` keeps var() references,
-   so utilities follow the nearest [data-direction] wrapper at runtime. */
+   so utilities follow the tokens at runtime. */
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);

@@ -1,27 +1,25 @@
 ---
 name: invitacion-estilo
-description: Visual and verbal style for the immersive wedding invitation. Use whenever building or reviewing any invitation section, motion, copy, placeholder asset, or the styleguide in this repo. Covers design tokens and the three directions (classic, boho, editorial), fonts, voice in neutral Colombian Spanish, motion rules, the immersion checklist, and the never-do list.
+description: Visual and verbal style for the immersive wedding invitation. Use whenever building or reviewing any invitation section, motion, copy, placeholder asset, or the styleguide in this repo. Covers design tokens for the chosen boho direction, fonts, voice in neutral Colombian Spanish, motion rules, the immersion checklist, and the never-do list.
 ---
 
 # Invitación: estilo
 
 Source of truth: `src/styles/tokens.css` (values), `DESIGN.md` (rationale), `PRODUCT.md` (strategy, anti-references). Read them before designing. Never hardcode a color, font, duration, or easing that a token already covers.
 
-## Directions and tokens
+## Direction and tokens
 
-Wrap the invitation in `data-direction="classic" | "boho" | "editorial"`. Every token re-resolves inside the wrapper; `:root` defaults to classic.
+The couple chose **boho** (Jardín boho). Tokens live in `:root`; no wrapper or `data-direction` needed.
 
-| Direction | Paper / ink | Accent / metal | Display + body | Script |
-|---|---|---|---|---|
-| `classic` Romántico clásico | cream / sepia ink | sage / old gold | EB Garamond | Pinyon Script |
-| `boho` Jardín boho | sand / burnt umber | terracotta / brass | Alegreya | Mrs Saint Delafield |
-| `editorial` Minimal editorial | ivory / ink black | burgundy only | Italiana (display, uppercase) + Hanken Grotesk (body) | none |
+| Paper / ink | Accent / metal | Display + body | Script |
+|---|---|---|---|
+| sand / burnt umber | terracotta / brass | Alegreya | Mrs Saint Delafield |
 
 Tailwind utilities (mapped in `src/app/globals.css` via `@theme inline`):
 
 - Color: `bg-paper`, `bg-paper-deep`, `bg-table`, `text-ink`, `text-ink-soft`, `text-accent`, `bg-accent-soft`, `text-metal`, `text-metal-ink`, `bg-seal`, `border-line`.
   - `metal` is for ornaments, rules, and large display only. Body-size text in gold uses `text-metal-ink` (>=4.5:1).
-- Type: `font-display`, `font-body`, `font-script`; sizes `text-xs` .. `text-5xl`, `text-hero` (fluid `clamp`, ratio >=1.25). The `display` utility applies family, weight, tracking, case, and balance for the current direction.
+- Type: `font-display`, `font-body`, `font-script`; sizes `text-xs` .. `text-5xl`, `text-hero` (fluid `clamp`, ratio >=1.25). The `display` utility applies family, weight, tracking, case, and balance.
 - Space: `p-gutter`, `gap-s`, `mt-xl`, `py-chapter` and the rest of `3xs..2xl`. Tight inside a group, `chapter` between chapters.
 - Surface: `paper` utility = paper color + grain + fibers. Use it instead of flat fills.
 - Shape and depth: `rounded-s|m|l`, `shadow-paper|lifted|letter` (warm-tinted, never gray).
@@ -49,8 +47,8 @@ Raw CSS uses the variables directly: `var(--paper)`, `var(--type-display)`, `var
 
 ## Immersion checklist (from PLAN section 6)
 
-- [ ] Designed at **390x844** first. Desktop is the same letter centered over a `bg-table` backdrop (linen, clay, or stone), not a stretched layout.
-- [ ] Max **2 type families** in the active direction; palette of 4 to 5 tones plus one metallic (or burgundy in editorial).
+- [ ] Designed at **390x844** first. Desktop is the same letter centered over a `bg-table` backdrop (raw clay), not a stretched layout.
+- [ ] Max **2 type families**; palette of 4 to 5 tones plus brass as the metallic.
 - [ ] Reveals 600 to 1200 ms, smooth curves, no bounce, all disabled under `prefers-reduced-motion`.
 - [ ] Paper or grain texture instead of flat color; warm shadows, never pure gray.
 - [ ] The guest's name appears **at least 3 times**: envelope, personal message, RSVP.
@@ -73,5 +71,4 @@ Raw CSS uses the variables directly: `var(--paper)`, `var(--type-display)`, `var
 - Repeated tiny uppercase tracked labels above every section heading.
 - Pink pastel watercolor florals, cartoon roses, stock botanical corners, Canva/Zola template look.
 - Fonts on the reflex-reject list (Cormorant, Playfair Display, Fraunces, Lora, Inter, DM Serif, and the rest in impeccable's brand reference).
-- In `editorial`: the saturated "italic serif + mono labels + ruled columns" magazine look. It is big upright display type and a lot of air, nothing more.
 - Autoplay audio, or any audio before the seal gesture.
