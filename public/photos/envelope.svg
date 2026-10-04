@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f2ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e2d9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M20 40 L380 40 L380 240 L20 240 Z" fill="url(#envGrad)" stroke="#b39d54" stroke-width="1.5"/>
+  <path d="M20 40 L200 140 L380 40" fill="none" stroke="#b39d54" stroke-width="1.5"/>
+  <circle cx="340" cy="80" r="22" fill="#6d3f2d" opacity="0.8"/>
+  <circle cx="340" cy="80" r="18" fill="none" stroke="#b39d54" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="160" font-family="serif" font-size="16" text-anchor="middle" fill="#4a3e3a" opacity="0.5">para ti</text>
+</svg>

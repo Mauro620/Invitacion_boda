@@ -1,0 +1,12 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="story3Grad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#faf7f2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8dcc8;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#story3Grad)"/>
+  <ellipse cx="200" cy="220" rx="110" ry="140" fill="#b39d54" opacity="0.18"/>
+  <path d="M160 150 Q140 100 180 80 Q200 70 220 80 Q260 100 240 150" fill="#7fa882" opacity="0.25"/>
+  <path d="M160 300 L240 300 Q250 320 240 340 L160 340 Q150 320 160 300" fill="#4a3e3a" opacity="0.12"/>
+</svg>
