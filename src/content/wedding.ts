@@ -5,6 +5,7 @@ export const wedding = {
   envelope: {
     line: "Una carta escrita a mano, solo para ti.",
     hint: "Toca el sello para abrirla",
+    for: "Para",
   },
   hero: {
     tagline: "Hay días que se esperan toda la vida. Este es uno, y quisimos que lo vivieras con nosotros.",
@@ -65,7 +66,7 @@ export const wedding = {
       blurb: "Aquí nos prometeremos el para siempre, con la luz de la tarde como testigo.",
     },
     {
-      kind: "recepcion",
+      kind: "recepción",
       name: "TODO:Lugar",
       address: "TODO",
       time: "18:00",
@@ -74,6 +75,7 @@ export const wedding = {
     },
   ],
   eventsUi: { directions: "Cómo llegar" },
+  itineraryTitle: "El día, paso a paso",
   itinerary: [
     { time: "16:00", label: "Ceremonia", note: "Llega unos minutos antes para acomodarte con calma.", icon: "rings" },
     { time: "17:30", label: "Cóctel", note: "Un brindis para empezar a celebrar.", icon: "glass" },
@@ -82,6 +84,8 @@ export const wedding = {
   ],
   dressCode: {
     label: "Formal / Etiqueta",
+    paletteTitle: "Colores que nos encantaría ver",
+    avoidTitle: "Mejor guardemos para la novia",
     palette: ["#7A8B6F", "#B89A5E", "#C9A18B", "#4A3F35"],
     avoid: ["blanco", "marfil", "crema"],
     notes:
@@ -94,8 +98,11 @@ export const wedding = {
     bank: null,
     revealButton: "Ver datos para el detalle",
     copyButton: "Copiar número",
+    copied: "Copiado",
+    copyFailed: "No pudimos copiar, inténtalo de nuevo",
   },
   recommendations: {
+    titles: { lodging: "Hospedaje", transport: "Transporte", weather: "Clima", adultsOnly: "Solo adultos" },
     lodging: "Te sugerimos reservar con tiempo. TODO: hoteles cercanos y códigos de descuento.",
     transport: "Habrá espacio para parquear. Si vas a brindar con nosotros, coordina un conductor o un taxi de regreso. TODO: transporte de cortesía.",
     adultsOnly: "Será una celebración solo para adultos. Gracias por entender que queremos cuidar cada detalle.",
@@ -116,6 +123,7 @@ export const wedding = {
     error: "No pudimos guardar tu respuesta. Revisa tu conexión e inténtalo de nuevo.",
     errorChoose: "Elige una opción para cada persona antes de enviar.",
     success: "Gracias, recibimos tu respuesta.",
+    confirm: "Confirmar",
   },
   closing: {
     attending: {
@@ -126,10 +134,22 @@ export const wedding = {
       title: "Te llevaremos en el corazón",
       text: "Sentimos que no puedas acompañarnos, pero sabemos que estarás presente de otra forma. Gracias por querernos así.",
     },
+    neutral: {
+      title: "Gracias por ser parte de esto",
+      text: "Cada persona que nos acompaña, de cerca o de lejos, hace esta historia más bonita.",
+    },
     final: "Porque el amor, cuando se comparte, se hace más grande.",
   },
   rsvpDeadline: "TODO",
-  music: { src: "/audio/placeholder.mp3", title: "TODO" },
+  music: { src: "/audio/placeholder.mp3", title: "TODO", label: "Música de fondo" },
+  galleryAlt: [
+    "Un momento juntos, 1",
+    "Un momento juntos, 2",
+    "Un momento juntos, 3",
+    "Un momento juntos, 4",
+    "Un momento juntos, 5",
+    "Un momento juntos, 6",
+  ],
   gallery: [
     "/photos/g-1.svg",
     "/photos/g-2.svg",

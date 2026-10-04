@@ -91,7 +91,7 @@ export function Gifts() {
                 </button>
               )}
               <p role="status" aria-live="polite" className="mt-2xs min-h-6 text-metal-ink">
-                {copied ? "✓" : failed ? "✕" : ""}
+                {copied ? g.copied : failed ? g.copyFailed : ""}
               </p>
             </div>
           </Reveal>

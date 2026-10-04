@@ -20,7 +20,7 @@ export function Gallery() {
           >
             <Image
               src={src}
-              alt={`${couple}, ${i + 1}/${photos.length}`}
+              alt={wedding.galleryAlt[i] ?? couple}
               width={640}
               height={800}
               loading="lazy"

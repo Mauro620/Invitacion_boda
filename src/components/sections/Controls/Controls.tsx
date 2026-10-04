@@ -7,7 +7,7 @@ import { wedding } from "@/content/wedding";
 type MusicButtonProps = { playing: boolean; onToggle: () => void };
 
 export function MusicButton({ playing, onToggle }: MusicButtonProps) {
-  const label = wedding.music.title;
+  const label = wedding.music.label;
   return (
     <button
       type="button"
@@ -62,7 +62,7 @@ export function RsvpFab({ visible, href = "#rsvp" }: RsvpFabProps) {
           exit={reduced ? { opacity: 0, x: "-50%" } : { opacity: 0, y: 24, x: "-50%" }}
           transition={{ duration: reduced ? 0.01 : 0.6, ease: curve.outExpo }}
         >
-          {wedding.rsvp.title}
+          {wedding.rsvp.confirm}
         </motion.a>
       )}
     </AnimatePresence>

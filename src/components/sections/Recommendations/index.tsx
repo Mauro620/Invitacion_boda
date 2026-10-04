@@ -35,7 +35,10 @@ export function Recommendations() {
               >
                 {ICONS[k]}
               </svg>
-              <p className="text-ink">{r[k]}</p>
+              <div>
+                <h3 className="display text-xl text-accent">{r.titles[k]}</h3>
+                <p className="mt-3xs text-ink">{r[k]}</p>
+              </div>
             </Reveal>
           ))}
         </ul>

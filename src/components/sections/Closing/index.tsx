@@ -9,7 +9,7 @@ const c = wedding.closing;
 const initials = `${wedding.couple.partnerA[0]} & ${wedding.couple.partnerB[0]}`;
 
 export function Closing({ attending, guestName }: Props) {
-  const msg = attending === true ? c.attending : attending === false ? c.notAttending : null;
+  const msg = attending === true ? c.attending : attending === false ? c.notAttending : c.neutral;
   return (
     <section className="paper relative flex min-h-dvh items-center justify-center overflow-hidden px-gutter py-chapter">
       {attending === true && (
@@ -22,18 +22,16 @@ export function Closing({ attending, guestName }: Props) {
           {guestName}
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="display text-4xl text-accent">{msg ? msg.title : c.final}</h2>
+          <h2 className="display text-4xl text-accent">{msg.title}</h2>
         </Reveal>
-        {msg && (
-          <>
+        <>
             <Reveal delay={0.2}>
               <p className="text-ink-soft">{msg.text}</p>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="text-ink">{c.final}</p>
             </Reveal>
-          </>
-        )}
+        </>
         <Reveal delay={0.4} className="mt-m">
           <p
             role="img"

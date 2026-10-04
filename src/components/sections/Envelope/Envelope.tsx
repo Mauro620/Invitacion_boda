@@ -27,6 +27,7 @@ export function Envelope({ guestName, onOpen }: Props) {
 
   // Lock scroll while the envelope covers the page; focus the only control.
   useEffect(() => {
+    if (gone) return;
     buttonRef.current?.focus({ preventScroll: true });
     const root = document.documentElement;
     const prev = root.style.overflow;
@@ -34,7 +35,7 @@ export function Envelope({ guestName, onOpen }: Props) {
     return () => {
       root.style.overflow = prev;
     };
-  }, []);
+  }, [gone]);
 
   if (gone) return null;
 
@@ -95,7 +96,7 @@ export function Envelope({ guestName, onOpen }: Props) {
               }}
             />
             <span className="display absolute inset-x-0 bottom-[11%] z-[3] text-center text-lg text-ink">
-              {`Para ${guestName}`}
+              {`${wedding.envelope.for} ${guestName}`}
             </span>
 
             {/* Flap: two faces, transform only, 3D */}

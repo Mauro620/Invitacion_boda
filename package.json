@@ -12,7 +12,8 @@
     "test": "vitest run --passWithNoTests",
     "format": "prettier --write .",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx src/db/seed.ts"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.3",
@@ -37,6 +38,7 @@
     "eslint-config-next": "15.5.27",
     "prettier": "^3.9.9",
     "tailwindcss": "^4",
+    "tsx": "^4.7.0",
     "typescript": "^5",
     "vitest": "^4.1.11"
   }

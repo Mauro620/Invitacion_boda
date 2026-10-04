@@ -50,6 +50,9 @@ export function Itinerary() {
   const items = wedding.itinerary;
   return (
     <section className="paper overflow-hidden py-chapter text-ink">
+      <Reveal className="px-gutter pb-m">
+        <h2 className="display text-3xl text-accent">{wedding.itineraryTitle}</h2>
+      </Reveal>
       <Reveal>
         <ol
           tabIndex={0}

@@ -59,6 +59,7 @@ export function DressCode() {
         </Reveal>
 
         <Reveal>
+          <h3 className="display text-xl">{dressCode.paletteTitle}</h3>
           <ul className="flex items-center justify-center -space-x-3 py-s" role="list">
             {dressCode.palette.map((hex, i) => (
               <li key={hex} className="list-none">
@@ -74,8 +75,9 @@ export function DressCode() {
         </Reveal>
 
         <Reveal>
+          <h3 className="display text-xl">{dressCode.avoidTitle}</h3>
           <ul
-            className="flex flex-wrap gap-x-m gap-y-2xs border-y border-line py-s text-lg"
+            className="mt-s flex flex-wrap gap-x-m gap-y-2xs border-y border-line py-s text-lg"
             role="list"
           >
             {dressCode.avoid.map((a) => (
