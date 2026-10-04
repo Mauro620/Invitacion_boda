@@ -36,6 +36,7 @@ export function Closing({ attending, guestName }: Props) {
         )}
         <Reveal delay={0.4} className="mt-m">
           <p
+            role="img"
             aria-label={`${wedding.couple.partnerA} y ${wedding.couple.partnerB}`}
             className="display border-y border-metal px-l py-xs text-3xl text-metal-ink"
           >
