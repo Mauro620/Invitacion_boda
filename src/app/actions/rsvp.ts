@@ -3,6 +3,8 @@
 import { and, eq, sql } from "drizzle-orm";
 import { headers } from "next/headers";
 import { auditLog, getDb, guests, invitations } from "@/db";
+import { wedding } from "@/content/wedding";
+import { isRsvpOpen } from "@/lib/deadline";
 import { rateKey, rsvpLimiter } from "@/lib/rate-limit";
 import { rsvpPayloadSchema } from "@/lib/rsvp-schema";
 import { isValidTokenShape } from "@/lib/tokens";
@@ -42,6 +44,8 @@ export async function recordOpen(token: string): Promise<ActionResult> {
 export async function submitRsvp(token: string, payload: unknown): Promise<ActionResult> {
   try {
     if (!isValidTokenShape(token)) return FAIL;
+    // Server-side deadline: a TODO/unparseable value counts as open.
+    if (!isRsvpOpen(wedding.rsvpDeadline)) return FAIL;
     if (!rsvpLimiter.check(rateKey(await clientIp(), token))) return FAIL;
     const parsed = rsvpPayloadSchema.safeParse(payload);
     if (!parsed.success) return FAIL;

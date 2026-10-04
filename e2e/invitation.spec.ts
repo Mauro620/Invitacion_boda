@@ -49,14 +49,14 @@ test("open, confirm and see the saved answer", async ({ page }) => {
 
   await rsvp.getByRole("radio", { name: "Asistiré" }).click();
   await rsvp.getByRole("button", { name: "Enviar mi respuesta" }).click();
-  await expect(rsvp.getByText("Gracias, recibimos tu respuesta.")).toBeVisible();
+  await expect(rsvp.locator("p", { hasText: "Gracias, recibimos tu respuesta." })).toBeVisible();
 
   // Persisted: a fresh load shows the saved answer and allows editing.
   await page.reload();
   await openEnvelope(page);
   const again = page.locator("#rsvp");
   await again.scrollIntoViewIfNeeded();
-  await expect(again.getByText("Gracias, recibimos tu respuesta.")).toBeVisible();
+  await expect(again.locator("p", { hasText: "Gracias, recibimos tu respuesta." })).toBeVisible();
   await expect(again.getByText("Asistiré")).toBeVisible();
   await expect(again.getByRole("button", { name: "Cambiar mi respuesta" })).toBeVisible();
 

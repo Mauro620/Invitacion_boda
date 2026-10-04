@@ -92,6 +92,10 @@ export function Rsvp({
   return (
     <section className="paper px-gutter py-chapter">
       <div className="mx-auto flex max-w-(--measure) flex-col gap-m">
+        {/* Persistent live region: announces the saved state (a region mounted with its text is often skipped). */}
+        <div aria-live="polite" className="sr-only">
+          {saved && !pending ? t.success : ""}
+        </div>
         <Reveal className="text-center">
           <FlowerSprig variant="drooping" className="mx-auto mb-xs h-16 w-auto" />
           <h2 className="display text-3xl text-accent">{t.title}</h2>
@@ -99,7 +103,7 @@ export function Rsvp({
         </Reveal>
 
         {saved ? (
-          <div aria-live="polite" className="flex flex-col gap-s">
+          <div className="flex flex-col gap-s">
             <p className="text-center text-ink">{pending ? t.intro : t.success}</p>
             <ul className="flex flex-col divide-y divide-line rounded-m border border-line bg-paper-deep">
               {guests.map((g) => (

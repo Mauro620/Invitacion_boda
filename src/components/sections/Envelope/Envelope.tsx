@@ -65,9 +65,10 @@ export function Envelope({ guestName, onOpen }: Props) {
           type="button"
           onClick={handleOpen}
           disabled={opened}
-          aria-label={wedding.envelope.hint}
           className="relative block w-[min(84vw,22rem)] cursor-pointer rounded-s [perspective:1000px] [aspect-ratio:10/7] touch-manipulation"
         >
+          {/* Accessible name = visible letter text + hint (keeps visible text inside the name). */}
+          <span className="sr-only">{wedding.envelope.hint}</span>
           <span className="pointer-events-none absolute inset-0 block [transform-style:preserve-3d]">
             {/* Inside of the envelope */}
             <span
