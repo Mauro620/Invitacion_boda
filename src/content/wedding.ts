@@ -1,5 +1,5 @@
 export const wedding = {
-  couple: { partnerA: "Violeta", partnerB: "David", hashtag: "#TODO" },
+  couple: { partnerA: "TODO:Nombre A", partnerB: "TODO:Nombre B", hashtag: "#TODO" },
   date: { iso: "2027-01-01T16:00:00-05:00", timezone: "America/Bogota", text: "TODO: fecha en texto" }, // TODO: real date
   quote: "Y de pronto, todo tuvo sentido.",
   envelope: {
