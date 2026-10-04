@@ -1,0 +1,13 @@
+# Invitación de boda — reglas
+- Lee PLAN.md antes de cada fase. Marca las tareas completadas con [x].
+- Todo el contenido sale de src/content/wedding.ts. Nunca hardcodees textos, fechas o lugares en componentes.
+- Mobile first: diseña a 390px. Prueba con Playwright 390x844.
+- Toda UI del invitado carga las skills invitacion-estilo + frontend-design; el motion, también la de Emil Kowalski.
+- Respeta prefers-reduced-motion en todo componente animado.
+- No agregues dependencias sin justificarlo en el commit.
+- Delegación: tareas mecánicas → subagentes haiku; UI, backend y QA → subagentes sonnet; decisiones estéticas globales → orquestador.
+- Trabajo paralelo → git worktrees (un worktree por grupo de secciones; no tocar carpetas de otro worktree).
+- Antes de mergear: npm run lint && npm run typecheck && npm run test.
+- Docker: los cambios deben funcionar con `docker compose up --build`.
+- Español neutro-colombiano, cálido. Sin lorem ipsum: los placeholders también deben emocionar.
+- Subagents: always invoke caveman:caveman and ponytail skills first.
