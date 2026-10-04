@@ -38,7 +38,7 @@ export function Hero({ guestName }: Props) {
           <div
             aria-hidden
             className="absolute inset-x-0 bottom-0 h-1/3"
-            style={{ background: "linear-gradient(180deg, transparent, oklch(93% 0.028 70 / 0.85))" }}
+            style={{ background: "linear-gradient(180deg, transparent, color-mix(in oklch, var(--paper) 88%, transparent))" }}
           />
         </div>
       </Parallax>

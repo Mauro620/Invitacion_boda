@@ -47,8 +47,8 @@
   --curve-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1); /* page-turn, flap */
 
   /* Paper grain: tiny SVG turbulence tile, blended over --paper. */
-  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.30 0 0 0 0 0.22 0 0 0 0 0.38 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --texture-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.28 0 0 0 0 0.44 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.30 0 0 0 0 0.22 0 0 0 0 0.38 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --texture-fibers: none; /* wavy fibers removed: page reads clean white */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -71,16 +71,16 @@
 
   --paper: oklch(98.4% 0.006 315); /* soft warm white, tinted not pure */
   --paper-deep: oklch(95.6% 0.014 310);
-  --table: oklch(84% 0.04 305); /* pale lilac backdrop around the letter */
+  --table: oklch(94.5% 0.012 305); /* very light lilac-tinted neutral backdrop */
   --ink: oklch(27% 0.035 318); /* plum-tinted near black */
   --ink-soft: oklch(45% 0.03 315);
-  --accent: oklch(48% 0.13 305); /* deep lilac, text-safe (>=4.5:1 on paper) */
+  --accent: oklch(52% 0.13 305); /* lilac, text-safe (5.6:1 on paper) */
   --accent-soft: oklch(80% 0.08 305); /* lilac for flowers and fills */
   --metal: oklch(66% 0.05 310); /* quiet lilac-gray silver */
   --metal-ink: oklch(46% 0.05 310);
   --seal: oklch(34% 0.11 320); /* deep plum wax */
   --line: oklch(87% 0.02 308);
-  --focus: oklch(48% 0.13 305);
+  --focus: oklch(52% 0.13 305);
 
   --round-s: 4px;
   --round-m: 10px;

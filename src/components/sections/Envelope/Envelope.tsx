@@ -17,7 +17,7 @@ const inOutQuart = [0.76, 0, 0.24, 1] as const;
 const sealHalf = { backgroundImage: SEAL_IMG, backgroundSize: "100% 100%" } as const;
 const faceBase = "absolute inset-0 [backface-visibility:hidden]";
 const flapClip = "polygon(0 0, 100% 0, 50% 100%)";
-const envelopeTone = "color-mix(in oklch, var(--accent-soft) 60%, var(--paper))";
+const envelopeTone = "color-mix(in oklch, var(--accent-soft) 38%, var(--paper))";
 const monogram = `${wedding.couple.partnerA[0]} & ${wedding.couple.partnerB[0]}`;
 
 export function Envelope({ guestName, onOpen }: Props) {
@@ -92,7 +92,7 @@ export function Envelope({ guestName, onOpen }: Props) {
               className="absolute inset-0 rounded-s"
               style={{
                 zIndex: 3,
-                background: `linear-gradient(180deg, transparent, oklch(60% 0.05 45 / 0.18)), ${envelopeTone}`,
+                background: `linear-gradient(180deg, transparent, color-mix(in oklch, var(--accent) 22%, transparent)), ${envelopeTone}`,
                 clipPath: `polygon(0 0, 50% ${FLAP_TIP}, 100% 0, 100% 100%, 0 100%)`,
               }}
             />
@@ -115,7 +115,7 @@ export function Envelope({ guestName, onOpen }: Props) {
                 className={faceBase}
                 style={{
                   clipPath: flapClip,
-                  background: `linear-gradient(180deg, oklch(100% 0 0 / 0.12), oklch(55% 0.06 40 / 0.2)), ${envelopeTone}`,
+                  background: `linear-gradient(180deg, color-mix(in oklch, var(--paper) 40%, transparent), color-mix(in oklch, var(--accent) 24%, transparent)), ${envelopeTone}`,
                 }}
               />
               <span
@@ -131,14 +131,14 @@ export function Envelope({ guestName, onOpen }: Props) {
             >
               <motion.span
                 className="absolute inset-0 block"
-                style={{ ...sealHalf, clipPath: "inset(0 50% 0 0)", filter: "drop-shadow(0 3px 3px oklch(25% 0.05 40 / 0.4))" }}
+                style={{ ...sealHalf, clipPath: "inset(0 50% 0 0)", filter: "drop-shadow(0 3px 3px color-mix(in oklch, var(--seal) 45%, transparent))" }}
                 initial={false}
                 animate={opened ? { x: "-30%", y: "18%", rotate: -16, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
                 transition={t({ duration: 0.6, ease: curve.outQuart, opacity: { duration: 0.35, delay: 0.25 } })}
               />
               <motion.span
                 className="absolute inset-0 block"
-                style={{ ...sealHalf, clipPath: "inset(0 0 0 50%)", filter: "drop-shadow(0 3px 3px oklch(25% 0.05 40 / 0.4))" }}
+                style={{ ...sealHalf, clipPath: "inset(0 0 0 50%)", filter: "drop-shadow(0 3px 3px color-mix(in oklch, var(--seal) 45%, transparent))" }}
                 initial={false}
                 animate={opened ? { x: "30%", y: "26%", rotate: 12, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
                 transition={t({ duration: 0.6, ease: curve.outQuart, opacity: { duration: 0.35, delay: 0.25 } })}

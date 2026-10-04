@@ -14,7 +14,7 @@ export function MusicButton({ playing, onToggle }: MusicButtonProps) {
       onClick={onToggle}
       aria-pressed={playing}
       aria-label={label}
-      className="fixed top-s right-s z-40 grid size-11 place-items-center rounded-full border border-line bg-paper text-accent shadow-paper transition-transform duration-[var(--dur-quick)] ease-[var(--curve-out-quart)] active:scale-95"
+      className="fixed top-s right-[max(var(--space-s),calc(50vw-15rem+var(--space-s)))] z-40 grid size-11 place-items-center rounded-full border border-line bg-paper text-accent shadow-paper transition-transform duration-[var(--dur-quick)] ease-[var(--curve-out-quart)] active:scale-95"
     >
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M9 18V6l10-2v12" />
@@ -37,7 +37,7 @@ export function ChapterProgress({ progress }: ChapterProgressProps) {
       aria-valuemax={100}
       aria-valuenow={Math.round(p * 100)}
       aria-label={`${wedding.couple.partnerA} & ${wedding.couple.partnerB}`}
-      className="fixed inset-x-0 top-0 z-40 h-0.5 bg-line/50"
+      className="fixed inset-x-[max(0px,calc(50vw-15rem))] top-0 z-40 h-0.5 bg-line/50"
     >
       <div
         className="h-full origin-left bg-accent"

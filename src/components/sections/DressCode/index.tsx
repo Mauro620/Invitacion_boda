@@ -14,7 +14,7 @@ const lines = {
 const fabric = (hex: string) => ({
   backgroundColor: hex,
   backgroundImage:
-    "radial-gradient(circle at 32% 28%, oklch(100% 0 0 / 0.22), transparent 55%), repeating-linear-gradient(45deg, oklch(0% 0 0 / 0.06) 0 1px, transparent 1px 3px), repeating-linear-gradient(-45deg, oklch(0% 0 0 / 0.05) 0 1px, transparent 1px 3px), var(--texture-grain)",
+    "radial-gradient(circle at 32% 28%, color-mix(in oklch, var(--paper) 30%, transparent), transparent 55%), repeating-linear-gradient(45deg, color-mix(in oklch, var(--ink) 7%, transparent) 0 1px, transparent 1px 3px), repeating-linear-gradient(-45deg, color-mix(in oklch, var(--ink) 6%, transparent) 0 1px, transparent 1px 3px), var(--texture-grain)",
   backgroundBlendMode: "normal, normal, normal, multiply",
 });
 

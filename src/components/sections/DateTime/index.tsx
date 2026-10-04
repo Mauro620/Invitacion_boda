@@ -92,14 +92,14 @@ export function DateTime() {
       <div className="mx-auto flex max-w-[26rem] flex-col gap-xl">
         <Reveal>
           <h2 className="display text-2xl text-accent">{copy.title}</h2>
-          <p className="mt-s text-lg capitalize text-ink-soft first-letter:capitalize">
+          <p className="mt-s text-lg text-ink-soft">
             {longDate}
           </p>
         </Reveal>
 
         <Reveal>
           <div role="group" aria-label={monthName} className="border-y border-line py-m">
-            <p className="display mb-s text-center text-xl capitalize">{monthName}</p>
+            <p className="display mb-s text-center text-xl first-letter:capitalize">{monthName}</p>
             <table className="w-full table-fixed text-center">
               <thead>
                 <tr>

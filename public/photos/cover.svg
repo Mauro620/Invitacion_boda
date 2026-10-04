@@ -12,5 +12,4 @@
   <rect width="540" height="960" fill="url(#coverGrad)"/>
   <circle cx="270" cy="300" r="180" fill="url(#accentGlow)"/>
   <path d="M270 220 Q310 260 310 320 Q310 380 270 410 Q230 380 230 320 Q230 260 270 220" fill="#8f78a8" opacity="0.3"/>
-  <text x="270" y="650" font-family="serif" font-size="48" font-weight="300" text-anchor="middle" fill="#3a2a47" letter-spacing="2">Invitación</text>
 </svg>
