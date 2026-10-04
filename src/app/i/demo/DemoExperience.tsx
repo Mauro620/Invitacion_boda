@@ -40,7 +40,12 @@ export function DemoExperience({ guestName }: { guestName: string }) {
   const startMusic = useCallback(() => {
     try {
       const a = (audio.current ??= new Audio(wedding.music.src));
-      a.loop = true;
+      const { startAt } = wedding.music;
+      a.currentTime = startAt; // browsers clamp/queue this until metadata loads
+      a.onended = () => {
+        a.currentTime = startAt; // loop back to the start point, not 0:00
+        a.play().catch(() => setPlaying(false));
+      };
       a.volume = 0.6;
       a.onerror = () => setPlaying(false);
       setPlaying(true);

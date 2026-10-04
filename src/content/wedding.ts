@@ -143,7 +143,12 @@ export const wedding = {
     final: "Porque el amor, cuando se comparte, se hace más grande.",
   },
   rsvpDeadline: "TODO",
-  music: { src: "/audio/placeholder.mp3", title: "TODO", label: "Música de fondo" },
+  music: {
+    src: "/audio/Rabito-UnPactoConDios.mp3",
+    title: "Un pacto con Dios, Rabito",
+    startAt: 15, // seconds; playback starts and loops from here
+    label: "Música de fondo",
+  },
   galleryAlt: [
     "Un momento juntos, 1",
     "Un momento juntos, 2",
