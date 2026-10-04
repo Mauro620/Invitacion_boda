@@ -76,10 +76,11 @@ node scripts/hash-password.mjs 'tu_contraseña'
 Copia el hash y añade a `.env`:
 
 ```
-ADMIN_USERS=novia@correo.com:$2a$12$...,novio@correo.com:$2b$12$...
+ADMIN_USERS='novia@correo.com:$2a$12$...,novio@correo.com:$2b$12$...'
 ```
 
-**Nota para Docker Compose**: Si la contraseña contiene `$`, escápalo como `\$` en el archivo `.env` (Docker lo interpreta como variable).
+**Importante con Docker Compose**: el hash de bcrypt contiene `$`, y sin comillas simples Compose lo toma como variable y lo corta (probado: `$2a$12$abc` queda como `$2a$12`, y el login falla). Dejá el valor entre comillas simples, o duplicá cada `$` (`$$`).
+Para `npm run dev` fuera de Docker, Next.js también expande `$`; si el login falla, probá con `\$` (no verificado acá).
 
 ## Scripts disponibles
 
