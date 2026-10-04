@@ -1,26 +1,88 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Map design tokens to Tailwind utilities. `inline` keeps var() references,
+   so utilities follow the nearest [data-direction] wrapper at runtime. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-table: var(--table);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-metal: var(--metal);
+  --color-metal-ink: var(--metal-ink);
+  --color-seal: var(--seal);
+  --color-line: var(--line);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --font-display: var(--type-display);
+  --font-body: var(--type-body);
+  --font-script: var(--type-script);
+  --font-sans: var(--type-body);
+
+  --text-xs: var(--step--1);
+  --text-base: var(--step-0);
+  --text-lg: var(--step-1);
+  --text-xl: var(--step-2);
+  --text-2xl: var(--step-3);
+  --text-3xl: var(--step-4);
+  --text-4xl: var(--step-5);
+  --text-5xl: var(--step-6);
+  --text-hero: var(--step-7);
+
+  --spacing-3xs: var(--space-3xs);
+  --spacing-2xs: var(--space-2xs);
+  --spacing-xs: var(--space-xs);
+  --spacing-s: var(--space-s);
+  --spacing-m: var(--space-m);
+  --spacing-l: var(--space-l);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-chapter: var(--space-chapter);
+  --spacing-gutter: var(--gutter);
+
+  --radius-s: var(--round-s);
+  --radius-m: var(--round-m);
+  --radius-l: var(--round-l);
+
+  --shadow-paper: var(--elev-paper);
+  --shadow-lifted: var(--elev-lifted);
+  --shadow-letter: var(--elev-letter);
+
+  --ease-out-quart: var(--curve-out-quart);
+  --ease-out-quint: var(--curve-out-quint);
+  --ease-out-expo: var(--curve-out-expo);
+  --ease-in-out-quart: var(--curve-in-out-quart);}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--type-body);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper surface: grain over flat color. Apply to any chapter or card. */
+@utility paper {
+  background-color: var(--paper);
+  background-image: var(--texture-grain), var(--texture-fibers);
+  background-blend-mode: multiply;
+}
+
+@utility display {
+  font-family: var(--type-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }

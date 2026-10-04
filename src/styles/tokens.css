@@ -1,0 +1,177 @@
+/*
+ * Design tokens for the three mockup directions.
+ * Switch with data-direction="classic|boho|editorial" on any wrapper.
+ * :root falls back to "classic" so unwrapped pages still render on-brand.
+ *
+ * Font family variables (--font-eb-garamond, ...) come from next/font in
+ * src/app/layout.tsx. Tailwind utilities are mapped in src/app/globals.css.
+ */
+
+/* ---------- Shared (direction-independent) ---------- */
+:root {
+  /* Fluid type scale. Mobile ratio 1.25 (390px) -> desktop ratio ~1.333 (1280px). */
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-0: clamp(1.0625rem, 1.01rem + 0.22vw, 1.1875rem); /* body: generous for older readers */
+  --step-1: clamp(1.33rem, 1.24rem + 0.38vw, 1.58rem);
+  --step-2: clamp(1.66rem, 1.5rem + 0.65vw, 2.11rem);
+  --step-3: clamp(2.08rem, 1.8rem + 1.1vw, 2.81rem);
+  --step-4: clamp(2.6rem, 2.15rem + 1.85vw, 3.75rem);
+  --step-5: clamp(3.25rem, 2.5rem + 3vw, 5rem);
+  --step-6: clamp(4.06rem, 2.9rem + 4.75vw, 6.66rem);
+  --step-7: clamp(5.08rem, 3.2rem + 7.7vw, 9.5rem); /* hero names, editorial display */
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-body: 1.65;
+  --measure: 34rem; /* ~65ch at body size */
+
+  /* Spacing: tight groupings, generous chapter separations. */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
+  --space-l: clamp(2rem, 1.7rem + 1.2vw, 3rem);
+  --space-xl: clamp(3rem, 2.4rem + 2.4vw, 5rem);
+  --space-2xl: clamp(4.5rem, 3.4rem + 4.5vw, 8rem);
+  --space-chapter: clamp(6rem, 4rem + 8vw, 12rem);
+  --gutter: clamp(1.25rem, 0.9rem + 1.5vw, 2.5rem);
+
+  /* Motion: reveals 600-1200ms, exponential ease-out, no bounce. */
+  --dur-quick: 240ms; /* taps, focus, hover only */
+  --dur-reveal: 600ms;
+  --dur-reveal-slow: 900ms;
+  --dur-cinematic: 1200ms; /* envelope, hero names */
+  --stagger: 80ms;
+  --curve-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --curve-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --curve-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --curve-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1); /* page-turn, flap */
+
+  /* Paper grain: tiny SVG turbulence tile, blended over --paper. */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --texture-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-reveal: 1ms;
+    --dur-reveal-slow: 1ms;
+    --dur-cinematic: 1ms;
+    --stagger: 0ms;
+  }
+}
+
+/* ---------- 1. Romántico clásico: cream, old gold, sage ---------- */
+:root,
+[data-direction="classic"] {
+  --type-display: var(--font-eb-garamond), "Garamond", serif;
+  --type-body: var(--font-eb-garamond), "Garamond", serif;
+  --type-script: var(--font-pinyon-script), cursive;
+  --display-weight: 400;
+  --display-tracking: -0.01em;
+  --display-case: none;
+
+  --paper: oklch(96.5% 0.018 85); /* warm cream stock */
+  --paper-deep: oklch(92.5% 0.026 82); /* envelope inside, quiet panels */
+  --table: oklch(84% 0.03 78); /* desktop backdrop: linen tablecloth */
+  --ink: oklch(27% 0.025 60); /* sepia-brown ink, never black */
+  --ink-soft: oklch(45% 0.025 65);
+  --accent: oklch(52% 0.06 140); /* sage, deepened for text contrast */
+  --accent-soft: oklch(78% 0.045 135);
+  --metal: oklch(70% 0.105 80); /* old gold: ornament, rules, seal rim */
+  --metal-ink: oklch(48% 0.085 75); /* gold dark enough for text >=4.5:1 */
+  --seal: oklch(42% 0.12 25); /* oxblood wax */
+  --line: oklch(80% 0.035 80);
+  --focus: oklch(48% 0.085 75);
+
+  --round-s: 2px;
+  --round-m: 4px;
+  --round-l: 8px;
+  --round-full: 999px;
+
+  --shadow-color: 40deg 30% 30%;
+  --elev-paper: 0 1px 1px hsl(var(--shadow-color) / 0.08), 0 4px 10px hsl(var(--shadow-color) / 0.08);
+  --elev-lifted: 0 2px 3px hsl(var(--shadow-color) / 0.1), 0 14px 32px -8px hsl(var(--shadow-color) / 0.22);
+  --elev-letter: 0 4px 6px hsl(var(--shadow-color) / 0.1), 0 30px 60px -20px hsl(var(--shadow-color) / 0.35);
+
+  --grain-opacity: 0.22;
+}
+
+/* ---------- 2. Jardín boho: terracotta, sand, dried flowers ---------- */
+[data-direction="boho"] {
+  --type-display: var(--font-alegreya), "Georgia", serif;
+  --type-body: var(--font-alegreya), "Georgia", serif;
+  --type-script: var(--font-mrs-saint-delafield), cursive;
+  --display-weight: 500;
+  --display-tracking: -0.015em;
+  --display-case: none;
+
+  --paper: oklch(93% 0.028 70); /* sun-faded sand, handmade cotton paper */
+  --paper-deep: oklch(88% 0.038 62);
+  --table: oklch(72% 0.06 50); /* raw clay */
+  --ink: oklch(29% 0.035 40); /* burnt umber */
+  --ink-soft: oklch(46% 0.04 45);
+  --accent: oklch(50% 0.12 42); /* terracotta, text-safe (~4.8:1 on paper) */
+  --accent-soft: oklch(76% 0.075 55);
+  --metal: oklch(66% 0.09 70); /* brass, dried wheat */
+  --metal-ink: oklch(47% 0.075 65);
+  --seal: oklch(48% 0.13 38); /* clay-red wax */
+  --line: oklch(78% 0.045 60);
+  --focus: oklch(50% 0.12 42);
+
+  --round-s: 4px;
+  --round-m: 10px;
+  --round-l: 20px; /* softer, hand-cut */
+  --round-full: 999px;
+
+  --shadow-color: 25deg 40% 28%;
+  --elev-paper: 0 1px 2px hsl(var(--shadow-color) / 0.1), 0 6px 14px hsl(var(--shadow-color) / 0.1);
+  --elev-lifted: 0 3px 4px hsl(var(--shadow-color) / 0.12), 0 18px 36px -10px hsl(var(--shadow-color) / 0.26);
+  --elev-letter: 0 6px 8px hsl(var(--shadow-color) / 0.12), 0 34px 64px -20px hsl(var(--shadow-color) / 0.4);
+
+  --grain-opacity: 0.32;
+}
+
+/* ---------- 3. Minimal editorial: ivory, ink black, one burgundy accent ---------- */
+[data-direction="editorial"] {
+  --type-display: var(--font-italiana), "Didot", serif;
+  --type-body: var(--font-hanken-grotesk), system-ui, sans-serif;
+  --type-script: var(--font-italiana), serif; /* no script in this direction */
+  --display-weight: 400;
+  --display-tracking: 0.02em;
+  --display-case: uppercase;
+
+  --paper: oklch(97.5% 0.008 90); /* ivory gallery wall */
+  --paper-deep: oklch(94.5% 0.01 88);
+  --table: oklch(90% 0.01 85); /* pale stone */
+  --ink: oklch(19% 0.008 60); /* ink black, warm-tinted */
+  --ink-soft: oklch(42% 0.008 60);
+  --accent: oklch(40% 0.13 15); /* burgundy, the single accent (<=10%) */
+  --accent-soft: oklch(85% 0.035 15);
+  --metal: oklch(40% 0.13 15); /* burgundy replaces metal here */
+  --metal-ink: oklch(40% 0.13 15);
+  --seal: oklch(36% 0.12 15);
+  --line: oklch(19% 0.008 60 / 0.18);
+  --focus: oklch(40% 0.13 15);
+
+  --round-s: 0;
+  --round-m: 0;
+  --round-l: 0;
+  --round-full: 999px;
+
+  --shadow-color: 40deg 15% 20%;
+  --elev-paper: 0 1px 0 hsl(var(--shadow-color) / 0.06);
+  --elev-lifted: 0 20px 40px -24px hsl(var(--shadow-color) / 0.25);
+  --elev-letter: 0 40px 80px -40px hsl(var(--shadow-color) / 0.3);
+
+  --grain-opacity: 0.1;
+}
+
+/* ---------- Base application of tokens ---------- */
+:root,
+[data-direction] {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--type-body);
+}
