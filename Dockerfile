@@ -8,6 +8,15 @@ FROM base AS deps
 COPY package.json package-lock.json ./
 RUN npm ci
 
+# ---- runtime deps: prod deps + only the tools needed for migrate/seed ----
+FROM base AS runtime-deps
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev \
+ && mkdir /tools && cd /tools && npm init -y >/dev/null \
+ && npm install --no-audit --no-fund drizzle-kit@^0.31.11 tsx@^4.7.0 \
+ && cp -a /tools/node_modules/. /app/node_modules/ \
+ && npm cache clean --force
+
 # ---- build ----
 FROM base AS build
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -31,13 +40,14 @@ COPY --from=build --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=build --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=build --chown=nextjs:nodejs /app/public ./public
 
-# Migration tooling (drizzle-kit is a devDependency; copy the full tree so
-# drizzle-kit, drizzle-orm and the DB driver resolve at start).
-COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
+# Migration/seed tooling (drizzle-kit, tsx) + prod deps only.
+COPY --from=runtime-deps --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=build --chown=nextjs:nodejs /app/package.json ./package.json
 COPY --from=build --chown=nextjs:nodejs /app/drizzle ./drizzle
 COPY --from=build --chown=nextjs:nodejs /app/drizzle.config.* ./
 COPY --from=build --chown=nextjs:nodejs /app/src/db ./src/db
+COPY --from=build --chown=nextjs:nodejs /app/src/lib ./src/lib
+COPY --from=build --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
 COPY --from=build --chown=nextjs:nodejs /app/scripts ./scripts
 COPY --chown=nextjs:nodejs docker/entrypoint.sh ./entrypoint.sh
 
