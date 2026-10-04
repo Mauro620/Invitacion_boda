@@ -7,13 +7,18 @@ import { wedding } from "@/content/wedding";
 
 type GuestIn = { id: string; name: string; attending: boolean | null; dietaryNotes?: string };
 type Payload = {
-  guests: { id: string; attending: boolean; dietaryNotes?: string }[];
+  guests: { id: string; name: string; attending: boolean; dietaryNotes?: string }[];
   noteToCouple?: string;
 };
 type Props = {
   guestName: string;
   guests: GuestIn[];
-  deadline: string;
+  /** Display label for the deadline, or null when none is set yet. */
+  deadline: string | null;
+  /** False once the deadline has passed: answers stay visible but read-only. */
+  open?: boolean;
+  /** The invitation already has a saved response. */
+  responded?: boolean;
   noteToCouple?: string;
   onSubmit: (payload: Payload) => Promise<{ ok: boolean; error?: string }>;
 };
@@ -28,11 +33,19 @@ const toAnswers = (gs: GuestIn[]): Record<string, Answer> =>
     gs.map((g) => [g.id, { attending: g.attending, dietaryNotes: g.dietaryNotes ?? "" }]),
   );
 
-export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit }: Props) {
+export function Rsvp({
+  guestName,
+  guests,
+  deadline,
+  open = true,
+  responded = false,
+  noteToCouple = "",
+  onSubmit,
+}: Props) {
   const [answers, setAnswers] = useState(() => toAnswers(guests));
   const [note, setNote] = useState(noteToCouple);
   const [saved, setSaved] = useState(
-    guests.length > 0 && guests.every((g) => g.attending !== null),
+    guests.length > 0 && (responded || guests.every((g) => g.attending !== null)),
   );
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
@@ -42,6 +55,7 @@ export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit 
 
   function submit(e?: React.FormEvent) {
     e?.preventDefault();
+    if (!open || pending) return;
     if (guests.some((g) => answers[g.id].attending === null)) {
       setError(t.errorChoose);
       return;
@@ -50,7 +64,12 @@ export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit 
       guests: guests.map((g) => {
         const a = answers[g.id];
         const d = a.attending ? a.dietaryNotes.trim().slice(0, DIET_MAX) : "";
-        return { id: g.id, attending: a.attending as boolean, ...(d && { dietaryNotes: d }) };
+        return {
+          id: g.id,
+          name: g.name,
+          attending: a.attending as boolean,
+          ...(d && { dietaryNotes: d }),
+        };
       }),
       ...(note.trim() && { noteToCouple: note.trim().slice(0, NOTE_MAX) }),
     };
@@ -92,14 +111,17 @@ export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit 
                 </li>
               ))}
             </ul>
-            <button
-              type="button"
-              onClick={() => setSaved(false)}
-              disabled={pending}
-              className="min-h-11 self-center rounded-m border border-line px-m text-accent transition-colors duration-(--dur-quick) hover:bg-paper-deep disabled:opacity-50"
-            >
-              {t.edit}
-            </button>
+            {note && <p className="text-center whitespace-pre-line text-ink-soft">{note}</p>}
+            {open && (
+              <button
+                type="button"
+                onClick={() => setSaved(false)}
+                disabled={pending}
+                className="min-h-11 self-center rounded-m border border-line px-m text-accent transition-colors duration-(--dur-quick) hover:bg-paper-deep disabled:opacity-50"
+              >
+                {t.edit}
+              </button>
+            )}
           </div>
         ) : (
           <form onSubmit={submit} noValidate className="flex flex-col gap-m">
@@ -156,22 +178,24 @@ export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit 
                 className="rounded-m border border-line bg-paper p-xs text-ink"
               />
             </label>
-            <p className="text-center text-ink-soft">
-              {t.deadlineLabel} <strong className="text-ink">{deadline}</strong>
-            </p>
+            {deadline && (
+              <p className="text-center text-ink-soft">
+                {t.deadlineLabel} <strong className="text-ink">{deadline}</strong>
+              </p>
+            )}
             <div role="alert" className="min-h-6 text-center text-seal">
               {error}
             </div>
             <button
               type="submit"
-              disabled={pending}
+              disabled={pending || !open}
               className="min-h-12 rounded-m bg-accent px-m text-paper shadow-paper transition-transform duration-(--dur-quick) ease-out-quart active:scale-[0.97] disabled:opacity-60"
             >
               {t.submit}
             </button>
           </form>
         )}
-        {saved && (
+        {saved && deadline && (
           <p className="text-center text-ink-soft">
             {t.deadlineLabel} <strong className="text-ink">{deadline}</strong>
           </p>
