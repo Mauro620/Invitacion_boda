@@ -146,7 +146,7 @@ export const wedding = {
   music: {
     src: "/audio/Rabito-UnPactoConDios.mp3",
     title: "Un pacto con Dios, Rabito",
-    startAt: 15, // seconds; playback starts and loops from here
+    startAt: 7, // seconds; playback starts and loops from here
     label: "Música de fondo",
   },
   galleryAlt: [
