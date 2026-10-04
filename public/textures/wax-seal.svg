@@ -1,21 +1,21 @@
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="sealGrad" cx="35%" cy="35%">
-      <stop offset="0%" style="stop-color:#8b4646;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#6d3f2d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5a3428;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#5e3380;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#4a2d66;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3f2a52;stop-opacity:1" />
     </radialGradient>
     <radialGradient id="sealShine" cx="30%" cy="30%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.4" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#fcfafd;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#fcfafd;stop-opacity:0" />
     </radialGradient>
   </defs>
   <circle cx="100" cy="100" r="85" fill="url(#sealGrad)"/>
   <circle cx="100" cy="100" r="85" fill="url(#sealShine)"/>
-  <circle cx="100" cy="100" r="70" fill="none" stroke="#b39d54" stroke-width="2" opacity="0.6"/>
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#a58fc0" stroke-width="2" opacity="0.6"/>
   <g transform="translate(100, 100)">
-    <circle cx="0" cy="0" r="55" fill="none" stroke="#b39d54" stroke-width="1.5" opacity="0.4"/>
-    <path d="M 0 -35 Q 15 -25 20 -10 Q 25 10 10 25 Q -10 30 -20 15 Q -30 0 -15 -25 Q 0 -35 0 -35" fill="none" stroke="#b39d54" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#a58fc0" stroke-width="1.5" opacity="0.4"/>
+    <path d="M 0 -35 Q 15 -25 20 -10 Q 25 10 10 25 Q -10 30 -20 15 Q -30 0 -15 -25 Q 0 -35 0 -35" fill="none" stroke="#a58fc0" stroke-width="1" opacity="0.5"/>
   </g>
-  <circle cx="100" cy="100" r="8" fill="#b39d54" opacity="0.7"/>
+  <circle cx="100" cy="100" r="8" fill="#a58fc0" opacity="0.7"/>
 </svg>

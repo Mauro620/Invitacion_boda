@@ -1,6 +1,7 @@
 export const wedding = {
-  couple: { partnerA: "TODO:Nombre A", partnerB: "TODO:Nombre B", hashtag: "#TODO" },
-  date: { iso: "2027-01-01T16:00:00-05:00", timezone: "America/Bogota", text: "TODO: fecha en texto" }, // TODO: real date
+  // TODO: confirm name order (Violetta and David vs David and Violetta).
+  couple: { partnerA: "Violetta", partnerB: "David", hashtag: "#TODO" },
+  date: { iso: "2026-12-05T16:00:00-05:00", timezone: "America/Bogota", text: "5 de diciembre de 2026" },
   quote: "Y de pronto, todo tuvo sentido.",
   envelope: {
     line: "Una carta escrita a mano, solo para ti.",
@@ -59,25 +60,26 @@ export const wedding = {
   events: [
     {
       kind: "ceremonia",
-      name: "TODO:Lugar",
-      address: "TODO",
+      name: "Parroquia Nuestra Señora del Rosario",
+      address: "Itagüí, Antioquia",
       time: "16:00",
-      mapsUrl: "TODO",
-      blurb: "Aquí nos prometeremos el para siempre, con la luz de la tarde como testigo.",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Parroquia%20Nuestra%20Se%C3%B1ora%20del%20Rosario%20Itag%C3%BC%C3%AD%20Antioquia",
+      blurb: "Empezamos con la Misa, donde nos prometeremos el para siempre con la luz de la tarde como testigo.",
     },
     {
       kind: "recepción",
-      name: "TODO:Lugar",
-      address: "TODO",
-      time: "18:00",
-      mapsUrl: "TODO",
-      blurb: "Después, la mesa larga, la música y las ganas de quedarnos hasta tarde contigo.",
+      name: "Prado Alto Apartamentos, Salón Social",
+      address: "Envigado, Antioquia",
+      time: "TODO: hora de la recepción",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Prado%20Alto%20Apartamentos%20Sal%C3%B3n%20Social%20Envigado%20Antioquia",
+      blurb: "Después de la Misa, la mesa larga, la música y las ganas de quedarnos hasta tarde contigo.",
     },
   ],
   eventsUi: { directions: "Cómo llegar" },
   itineraryTitle: "El día, paso a paso",
+  // TODO: confirm times after the Misa; only 16:00 is confirmed.
   itinerary: [
-    { time: "16:00", label: "Ceremonia", note: "Llega unos minutos antes para acomodarte con calma.", icon: "rings" },
+    { time: "16:00", label: "Misa", note: "Llega unos minutos antes para acomodarte con calma.", icon: "rings" },
     { time: "17:30", label: "Cóctel", note: "Un brindis para empezar a celebrar.", icon: "glass" },
     { time: "19:00", label: "Cena", note: "Una mesa pensada para compartir.", icon: "plate" },
     { time: "21:00", label: "Baile", note: "Trae tus mejores pasos y tus ganas de reír.", icon: "dance" },
@@ -86,10 +88,10 @@ export const wedding = {
     label: "Formal / Etiqueta",
     paletteTitle: "Colores que nos encantaría ver",
     avoidTitle: "Mejor guardemos para la novia",
-    palette: ["#7A8B6F", "#B89A5E", "#C9A18B", "#4A3F35"],
-    avoid: ["blanco", "marfil", "crema"],
+    palette: ["#8E6FB0", "#B79BD3", "#6B8F71", "#473A52"], // TODO: confirm palette with the couple
+    avoid: ["blanco", "marfil", "crema"], // TODO: confirm
     notes:
-      "Queremos verte elegante y cómodo(a). Los tonos tierra y verdes suaves acompañan muy bien el paisaje. El blanco y el marfil los guardamos para la novia.",
+      "Queremos verte elegante y cómodo(a). Los lilas, los verdes suaves y los tonos ciruela acompañan muy bien el paisaje. El blanco y el marfil los guardamos para la novia.",
   },
   gifts: {
     mode: "lluvia-de-sobres",

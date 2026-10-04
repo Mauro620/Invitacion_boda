@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Reveal } from "@/components/motion";
+import { FlowerSprig } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
 type GuestIn = { id: string; name: string; attending: boolean | null; dietaryNotes?: string };
@@ -73,6 +74,7 @@ export function Rsvp({ guestName, guests, deadline, noteToCouple = "", onSubmit 
     <section className="paper px-gutter py-chapter">
       <div className="mx-auto flex max-w-(--measure) flex-col gap-m">
         <Reveal className="text-center">
+          <FlowerSprig variant="drooping" className="mx-auto mb-xs h-16 w-auto" />
           <h2 className="display text-3xl text-accent">{t.title}</h2>
           <p className="mt-xs text-ink-soft">{guestName}</p>
         </Reveal>

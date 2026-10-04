@@ -1,12 +1,12 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="story4Grad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#efe3d0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e6d3b8;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#f6f2f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2d5ee;stop-opacity:1" />
     </linearGradient>
   </defs>
   <rect width="400" height="500" fill="url(#story4Grad)"/>
-  <circle cx="150" cy="180" r="70" fill="#b8694a" opacity="0.2"/>
-  <circle cx="250" cy="220" r="85" fill="#a8803f" opacity="0.15"/>
-  <path d="M100 350 Q100 380 130 390 L270 390 Q300 380 300 350" fill="#4a3226" opacity="0.1"/>
+  <circle cx="150" cy="180" r="70" fill="#7a55a3" opacity="0.2"/>
+  <circle cx="250" cy="220" r="85" fill="#8f78a8" opacity="0.15"/>
+  <path d="M100 350 Q100 380 130 390 L270 390 Q300 380 300 350" fill="#3a2a47" opacity="0.1"/>
 </svg>

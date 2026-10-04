@@ -1,13 +1,13 @@
 <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#efe3d0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e2d2ba;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#f6f2f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ddd0ea;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <path d="M20 40 L380 40 L380 240 L20 240 Z" fill="url(#envGrad)" stroke="#a8803f" stroke-width="1.5"/>
-  <path d="M20 40 L200 140 L380 40" fill="none" stroke="#a8803f" stroke-width="1.5"/>
-  <circle cx="340" cy="80" r="22" fill="#6d3f2d" opacity="0.8"/>
-  <circle cx="340" cy="80" r="18" fill="none" stroke="#a8803f" stroke-width="1.5" opacity="0.6"/>
-  <text x="200" y="160" font-family="serif" font-size="16" text-anchor="middle" fill="#4a3226" opacity="0.5">para ti</text>
+  <path d="M20 40 L380 40 L380 240 L20 240 Z" fill="url(#envGrad)" stroke="#8f78a8" stroke-width="1.5"/>
+  <path d="M20 40 L200 140 L380 40" fill="none" stroke="#8f78a8" stroke-width="1.5"/>
+  <circle cx="340" cy="80" r="22" fill="#4a2d66" opacity="0.8"/>
+  <circle cx="340" cy="80" r="18" fill="none" stroke="#8f78a8" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="160" font-family="serif" font-size="16" text-anchor="middle" fill="#3a2a47" opacity="0.5">para ti</text>
 </svg>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Petals, Reveal } from "@/components/motion";
+import { FlowerCorner } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
 type Props = { attending: boolean | null; guestName: string };
@@ -17,6 +18,8 @@ export function Closing({ attending, guestName }: Props) {
           <Petals count={40} />
         </div>
       )}
+      <FlowerCorner position="bl" className="bottom-0 left-0 w-28" />
+      <FlowerCorner position="br" className="right-0 bottom-0 w-28" delay={0.2} />
       <div className="relative mx-auto flex max-w-(--measure) flex-col items-center gap-m text-center">
         <Reveal as="p" className="text-ink-soft">
           {guestName}

@@ -9,20 +9,20 @@ Source of truth: `src/styles/tokens.css` (values), `DESIGN.md` (rationale), `PRO
 
 ## Direction and tokens
 
-The couple chose **boho** (Jardín boho). Tokens live in `:root`; no wrapper or `data-direction` needed.
+The couple chose **boho** (boho layout and typography with a white and lilac palette; motif: illustrated lilac flowers (line/flat), never pink pastel watercolor). Tokens live in `:root`; no wrapper or `data-direction` needed.
 
 | Paper / ink | Accent / metal | Display + body | Script |
 |---|---|---|---|
-| sand / burnt umber | terracotta / brass | Alegreya | Mrs Saint Delafield |
+| warm white / plum ink | lilac / lilac-gray silver | Alegreya | Mrs Saint Delafield |
 
 Tailwind utilities (mapped in `src/app/globals.css` via `@theme inline`):
 
 - Color: `bg-paper`, `bg-paper-deep`, `bg-table`, `text-ink`, `text-ink-soft`, `text-accent`, `bg-accent-soft`, `text-metal`, `text-metal-ink`, `bg-seal`, `border-line`.
-  - `metal` is for ornaments, rules, and large display only. Body-size text in gold uses `text-metal-ink` (>=4.5:1).
+  - `metal` is for ornaments, rules, and large display only. Body-size text in the metal tone uses `text-metal-ink` (>=4.5:1).
 - Type: `font-display`, `font-body`, `font-script`; sizes `text-xs` .. `text-5xl`, `text-hero` (fluid `clamp`, ratio >=1.25). The `display` utility applies family, weight, tracking, case, and balance.
 - Space: `p-gutter`, `gap-s`, `mt-xl`, `py-chapter` and the rest of `3xs..2xl`. Tight inside a group, `chapter` between chapters.
 - Surface: `paper` utility = paper color + grain + fibers. Use it instead of flat fills.
-- Shape and depth: `rounded-s|m|l`, `shadow-paper|lifted|letter` (warm-tinted, never gray).
+- Shape and depth: `rounded-s|m|l`, `shadow-paper|lifted|letter` (lilac-plum tinted, never gray).
 - Motion: `ease-out-expo|out-quint|out-quart|in-out-quart`; durations via `duration-(--dur-reveal)`, `--dur-reveal-slow`, `--dur-cinematic`, `--dur-quick`, stagger `--stagger`.
 
 Raw CSS uses the variables directly: `var(--paper)`, `var(--type-display)`, `var(--curve-out-expo)`, `var(--elev-letter)`.
@@ -47,10 +47,10 @@ Raw CSS uses the variables directly: `var(--paper)`, `var(--type-display)`, `var
 
 ## Immersion checklist (from PLAN section 6)
 
-- [ ] Designed at **390x844** first. Desktop is the same letter centered over a `bg-table` backdrop (raw clay), not a stretched layout.
-- [ ] Max **2 type families**; palette of 4 to 5 tones plus brass as the metallic.
+- [ ] Designed at **390x844** first. Desktop is the same letter centered over a `bg-table` backdrop (pale lilac), not a stretched layout.
+- [ ] Max **2 type families**; palette of 4 to 5 tones plus lilac-gray as the metallic.
 - [ ] Reveals 600 to 1200 ms, smooth curves, no bounce, all disabled under `prefers-reduced-motion`.
-- [ ] Paper or grain texture instead of flat color; warm shadows, never pure gray.
+- [ ] Paper or grain texture instead of flat color; lilac-plum shadows, never pure gray.
 - [ ] The guest's name appears **at least 3 times**: envelope, personal message, RSVP.
 - [ ] Each chapter fills at least one mobile screen and has its own transition.
 - [ ] Order holds: emotion, then information, then action, then farewell.

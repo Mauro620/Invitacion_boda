@@ -1,5 +1,5 @@
 /*
- * Design tokens: boho direction (chosen). Alegreya + Mrs Saint Delafield.
+ * Design tokens: boho layout, white + lilac palette. Alegreya + Mrs Saint Delafield.
  *
  * Font family variables (--font-alegreya, ...) come from next/font in
  * src/app/layout.tsx. Tailwind utilities are mapped in src/app/globals.css.
@@ -47,8 +47,8 @@
   --curve-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1); /* page-turn, flap */
 
   /* Paper grain: tiny SVG turbulence tile, blended over --paper. */
-  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --texture-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.30 0 0 0 0 0.22 0 0 0 0 0.38 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --texture-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.28 0 0 0 0 0.44 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -60,7 +60,7 @@
   }
 }
 
-/* ---------- Jardín boho: terracotta, sand, dried flowers ---------- */
+/* ---------- Boho white and lilac: warm-white paper, lilac details, plum ink ---------- */
 :root {
   --type-display: var(--font-alegreya), "Georgia", serif;
   --type-body: var(--font-alegreya), "Georgia", serif;
@@ -69,30 +69,30 @@
   --display-tracking: -0.015em;
   --display-case: none;
 
-  --paper: oklch(93% 0.028 70); /* sun-faded sand, handmade cotton paper */
-  --paper-deep: oklch(88% 0.038 62);
-  --table: oklch(72% 0.06 50); /* raw clay */
-  --ink: oklch(29% 0.035 40); /* burnt umber */
-  --ink-soft: oklch(46% 0.04 45);
-  --accent: oklch(50% 0.12 42); /* terracotta, text-safe (~4.8:1 on paper) */
-  --accent-soft: oklch(76% 0.075 55);
-  --metal: oklch(66% 0.09 70); /* brass, dried wheat */
-  --metal-ink: oklch(47% 0.075 65);
-  --seal: oklch(48% 0.13 38); /* clay-red wax */
-  --line: oklch(78% 0.045 60);
-  --focus: oklch(50% 0.12 42);
+  --paper: oklch(98.4% 0.006 315); /* soft warm white, tinted not pure */
+  --paper-deep: oklch(95.6% 0.014 310);
+  --table: oklch(84% 0.04 305); /* pale lilac backdrop around the letter */
+  --ink: oklch(27% 0.035 318); /* plum-tinted near black */
+  --ink-soft: oklch(45% 0.03 315);
+  --accent: oklch(48% 0.13 305); /* deep lilac, text-safe (>=4.5:1 on paper) */
+  --accent-soft: oklch(80% 0.08 305); /* lilac for flowers and fills */
+  --metal: oklch(66% 0.05 310); /* quiet lilac-gray silver */
+  --metal-ink: oklch(46% 0.05 310);
+  --seal: oklch(34% 0.11 320); /* deep plum wax */
+  --line: oklch(87% 0.02 308);
+  --focus: oklch(48% 0.13 305);
 
   --round-s: 4px;
   --round-m: 10px;
   --round-l: 20px; /* softer, hand-cut */
   --round-full: 999px;
 
-  --shadow-color: 25deg 40% 28%;
+  --shadow-color: 290deg 28% 30%;
   --elev-paper: 0 1px 2px hsl(var(--shadow-color) / 0.1), 0 6px 14px hsl(var(--shadow-color) / 0.1);
   --elev-lifted: 0 3px 4px hsl(var(--shadow-color) / 0.12), 0 18px 36px -10px hsl(var(--shadow-color) / 0.26);
   --elev-letter: 0 6px 8px hsl(var(--shadow-color) / 0.12), 0 34px 64px -20px hsl(var(--shadow-color) / 0.4);
 
-  --grain-opacity: 0.32;
+  --grain-opacity: 0.1;
 }
 
 /* ---------- Base application of tokens ---------- */

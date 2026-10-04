@@ -32,7 +32,7 @@ export function Petals({ count = 24, color = "var(--accent-soft)", className }: 
     const cv = ref.current;
     const ctx = cv?.getContext("2d");
     if (!cv || !ctx || reduced) return;
-    const fill = getComputedStyle(cv).getPropertyValue("--petal").trim() || "#d9b8a0";
+    const fill = getComputedStyle(cv).getPropertyValue("--petal").trim() || "oklch(80% 0.07 305)";
     let w = 0,
       h = 0,
       raf = 0;

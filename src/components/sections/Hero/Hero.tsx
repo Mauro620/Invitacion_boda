@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Parallax, Reveal, SplitText, curve, useReducedMotion } from "@/components/motion";
+import { FlowerCorner } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
 type Props = {
@@ -18,6 +19,9 @@ export function Hero({ guestName }: Props) {
       data-guest={guestName}
       className="paper relative flex min-h-svh flex-col items-center overflow-hidden px-gutter pt-l pb-m text-center"
     >
+      <FlowerCorner position="tl" className="top-0 left-0 z-10 w-28" delay={0.4} />
+      <FlowerCorner position="tr" className="top-0 right-0 z-10 w-28" delay={0.6} />
+
       {/* Vertical print in an arched frame */}
       <Parallax distance={48} className="w-[min(78vw,21rem)]">
         <div

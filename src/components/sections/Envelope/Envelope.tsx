@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { curve, useReducedMotion } from "@/components/motion";
+import { FlowerSprig } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
 type Props = {
@@ -143,6 +144,13 @@ export function Envelope({ guestName, onOpen }: Props) {
                 transition={t({ duration: 0.6, ease: curve.outQuart, opacity: { duration: 0.35, delay: 0.25 } })}
               />
             </span>
+          </span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute z-[6] block w-[15%]"
+            style={{ left: "66%", top: FLAP_TIP, transform: "translate(-50%, -100%) rotate(64deg)", transformOrigin: "50% 100%" }}
+          >
+            <FlowerSprig variant="bud" delay={0.3} className="w-full" />
           </span>
         </button>
 

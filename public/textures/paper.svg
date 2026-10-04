@@ -8,6 +8,6 @@
       </feComponentTransfer>
     </filter>
   </defs>
-  <rect width="200" height="200" fill="#f5f2ee"/>
-  <rect width="200" height="200" fill="#4a3e3a" filter="url(#paperGrain)"/>
+  <rect width="200" height="200" fill="#faf7fb"/>
+  <rect width="200" height="200" fill="#473a52" filter="url(#paperGrain)"/>
 </svg>

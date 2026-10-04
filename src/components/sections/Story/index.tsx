@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { DrawPath, Reveal, curve, dur, useReducedMotion } from "@/components/motion";
+import { FlowerDivider } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
 const THREAD = "M20 0 C 40 24, 0 44, 20 66 S 0 100, 20 120";
@@ -38,6 +39,7 @@ export function Story() {
   const items = wedding.story;
   return (
     <section className="paper min-h-[844px] px-gutter py-chapter">
+      <FlowerDivider className="mb-l" />
       <ol className="mx-auto flex max-w-md flex-col items-center">
         {items.map((m, i) => (
           <Fragment key={m.title}>
