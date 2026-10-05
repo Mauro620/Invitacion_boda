@@ -103,13 +103,13 @@ export const wedding = {
     copied: "Copiado",
     copyFailed: "No pudimos copiar, inténtalo de nuevo",
   },
-  recommendations: {
-    titles: { lodging: "Hospedaje", transport: "Transporte", weather: "Clima", adultsOnly: "Solo adultos" },
-    lodging: "Te sugerimos reservar con tiempo. TODO: hoteles cercanos y códigos de descuento.",
-    transport: "Habrá espacio para parquear. Si vas a brindar con nosotros, coordina un conductor o un taxi de regreso. TODO: transporte de cortesía.",
-    adultsOnly: "Será una celebración solo para adultos. Gracias por entender que queremos cuidar cada detalle.",
-    weather: "A esa hora suele refrescar. Trae un abrigo ligero para la noche.",
-  },
+  // recommendations: {
+  //   titles: { lodging: "Hospedaje", transport: "Transporte", weather: "Clima", adultsOnly: "Solo adultos" },
+  //   lodging: "Te sugerimos reservar con tiempo. TODO: hoteles cercanos y códigos de descuento.",
+  //   transport: "Habrá espacio para parquear. Si vas a brindar con nosotros, coordina un conductor o un taxi de regreso. TODO: transporte de cortesía.",
+  //   adultsOnly: "Será una celebración solo para adultos. Gracias por entender que queremos cuidar cada detalle.",
+  //   weather: "A esa hora suele refrescar. Trae un abrigo ligero para la noche.",
+  // },
   rsvp: {
     title: "¿Nos acompañas?",
     intro: "Cuéntanos quiénes vendrán. Solo te tomará un minuto.",
