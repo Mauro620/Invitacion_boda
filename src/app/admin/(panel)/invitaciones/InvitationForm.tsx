@@ -123,7 +123,7 @@ export function InvitationForm({
       </div>
 
       <label className={labelClass}>
-        Teléfono (con código de país, para WhatsApp)
+        Celular (opcional, con código de país, para WhatsApp)
         <input
           type="tel"
           inputMode="tel"
