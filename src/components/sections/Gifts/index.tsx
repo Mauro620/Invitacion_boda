@@ -59,6 +59,9 @@ export function Gifts() {
         <Reveal delay={0.16}>
           <p className="text-ink-soft">{g.text}</p>
         </Reveal>
+        <Reveal delay={0.2}>
+          <p className="font-script text-3xl leading-snug text-accent">{g.verse}</p>
+        </Reveal>
 
         {bank && (
           <Reveal delay={0.24} className="flex w-full flex-col items-center gap-s">

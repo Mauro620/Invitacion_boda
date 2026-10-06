@@ -15,7 +15,7 @@ export function PersonalMessage({ guestName, message }: Props) {
           <FlowerCorner position="tr" className="-top-4 -right-3 w-24" delay={0.3} />
           <p className="font-script text-3xl text-accent">{greeting}</p>
           <h2 className="display mt-3xs text-3xl text-ink">{guestName}</h2>
-          <p className="mt-m font-script text-2xl leading-snug text-ink whitespace-pre-line">
+          <p className="mt-m font-script text-2xl leading-normal text-ink whitespace-pre-line">
             {body}
           </p>
           <p className="mt-l text-right font-script text-2xl text-ink-soft">{signature}</p>

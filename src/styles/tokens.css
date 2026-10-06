@@ -1,5 +1,5 @@
 /*
- * Design tokens: boho layout, white + lilac palette. Alegreya + Mrs Saint Delafield.
+ * Design tokens: boho layout, white + lilac palette. Alegreya + Allura.
  *
  * Font family variables (--font-alegreya, ...) come from next/font in
  * src/app/layout.tsx. Tailwind utilities are mapped in src/app/globals.css.
@@ -64,7 +64,7 @@
 :root {
   --type-display: var(--font-alegreya), "Georgia", serif;
   --type-body: var(--font-alegreya), "Georgia", serif;
-  --type-script: var(--font-mrs-saint-delafield), cursive;
+  --type-script: var(--font-allura), cursive;
   --display-weight: 500;
   --display-tracking: -0.015em;
   --display-case: none;

@@ -4,9 +4,17 @@ import { buildIcs, countdown, googleCalendarUrl, monthGrid, toUtcStamp, zonedPar
 const start = new Date("2027-01-01T16:00:00-05:00");
 
 describe("countdown", () => {
-  it("splits days, hours and minutes", () => {
-    const now = new Date(start.getTime() - (3 * 86_400_000 + 4 * 3_600_000 + 5 * 60_000 + 30_000));
-    expect(countdown(start, now)).toEqual({ past: false, days: 3, hours: 4, minutes: 5 });
+  it("splits days, hours, minutes and seconds", () => {
+    const now = new Date(
+      start.getTime() - (3 * 86_400_000 + 4 * 3_600_000 + 5 * 60_000 + 30_000 + 400),
+    );
+    expect(countdown(start, now)).toEqual({
+      past: false,
+      days: 3,
+      hours: 4,
+      minutes: 5,
+      seconds: 30,
+    });
   });
   it("flags a past date with zeros", () => {
     expect(countdown(start, new Date(start.getTime() + 1))).toEqual({
@@ -14,6 +22,7 @@ describe("countdown", () => {
       days: 0,
       hours: 0,
       minutes: 0,
+      seconds: 0,
     });
     expect(countdown(start, start).past).toBe(true);
   });

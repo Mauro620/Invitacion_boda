@@ -10,7 +10,7 @@ Design system for the immersive wedding invitation. The couple chose the **boho*
 
 - **Physical object:** a handbound journal on soft white cotton paper, lilac flowers drawn as illustrated line and flat shapes (never pink pastel watercolor), a quiet silver clip, a deep plum wax seal.
 - **Color strategy:** Committed. Warm white paper with lilac carrying headlines, dividers, and flowers; plum for ink and the seal; lilac-gray as the metallic.
-- **Type:** Alegreya for display and reading (calligraphic, written-by-hand rhythm in a serif built for long literature; replaces Playfair's high contrast with warmth that survives body sizes) + Mrs Saint Delafield as the handwritten accent.
+- **Type:** Alegreya for display and reading (calligraphic, written-by-hand rhythm in a serif built for long literature; replaces Playfair's high contrast with warmth that survives body sizes) + Allura as the handwritten accent (replaced Mrs Saint Delafield, which was too hard to read in the personal message).
 - **Shape:** softer, hand-cut corners (4 to 20px), lilac-plum tinted shadows, very subtle grain so the page reads as white paper.
 
 ## Color
@@ -32,7 +32,7 @@ Contrast floor: WCAG 2.2 AA. Accent and `metal-ink` were set to reach at least 4
 ## Typography
 
 - Fluid modular scale `--step--1` to `--step-7` with `clamp()`: ratio 1.25 at 390px, about 1.333 at desktop. Body starts at 17px for older readers.
-- Two families: Alegreya + Mrs Saint Delafield. Script never carries key information (dates, addresses, RSVP labels, buttons).
+- Two families: Alegreya + Allura. Script never carries key information (dates, addresses, RSVP labels, buttons).
 - Line length capped at `--measure` (about 65ch). `text-wrap: balance` on display.
 - Display tracking and case are tokens (`--display-tracking`, `--display-case`).
 
