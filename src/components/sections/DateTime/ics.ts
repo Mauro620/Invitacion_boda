@@ -1,19 +1,27 @@
 /** Pure helpers for the DateTime chapter: countdown, calendar grid, .ics and Google Calendar links. */
 
-export type Countdown = { past: boolean; days: number; hours: number; minutes: number };
+export type Countdown = {
+  past: boolean;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
 
-const MIN = 60_000;
+const SEC = 1_000;
+const MIN = 60 * SEC;
 const HOUR = 60 * MIN;
 const DAY = 24 * HOUR;
 
 export function countdown(target: Date, now: Date): Countdown {
   const diff = target.getTime() - now.getTime();
-  if (diff <= 0) return { past: true, days: 0, hours: 0, minutes: 0 };
+  if (diff <= 0) return { past: true, days: 0, hours: 0, minutes: 0, seconds: 0 };
   return {
     past: false,
     days: Math.floor(diff / DAY),
     hours: Math.floor((diff % DAY) / HOUR),
     minutes: Math.floor((diff % HOUR) / MIN),
+    seconds: Math.floor((diff % MIN) / SEC),
   };
 }
 

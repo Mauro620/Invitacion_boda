@@ -1,6 +1,6 @@
 export const wedding = {
   // TODO: confirm name order (Violetta and David vs David and Violetta).
-  couple: { partnerA: "Violetta", partnerB: "David", hashtag: "#TODO" },
+  couple: { partnerA: "Violeta", partnerB: "David", hashtag: "#TODO" },
   date: { iso: "2026-12-05T16:00:00-05:00", timezone: "America/Bogota", text: "5 de diciembre de 2026" },
   quote: "Y de pronto, todo tuvo sentido.",
   envelope: {
@@ -11,6 +11,7 @@ export const wedding = {
   hero: {
     tagline: "Hay días que se esperan toda la vida. Este es uno, y quisimos que lo vivieras con nosotros.",
     scroll: "Sigue bajando, aún hay más por contarte",
+    photo: "/photos/imagen1.jpeg",
   },
   intro: {
     lines: [
@@ -21,31 +22,31 @@ export const wedding = {
     ],
   },
   story: [
-    {
-      year: "TODO",
-      title: "Cómo nos conocimos",
-      text: "Nadie lo planeó. Una conversación que debía durar cinco minutos se alargó hasta que se apagaron las luces, y desde esa noche supimos que algo había empezado.",
-      photo: "/photos/story-1.svg",
-    },
-    {
-      year: "TODO",
-      title: "La primera vez que dijimos nosotros",
-      text: "Sin darnos cuenta, los planes empezaron a conjugarse en plural. Un café se volvió costumbre, y la costumbre se volvió hogar.",
-      photo: "/photos/story-2.svg",
-    },
-    {
-      year: "TODO",
-      title: "Aprendimos a viajar juntos",
-      text: "Nos perdimos en caminos que no estaban en el mapa y descubrimos que, a tu lado, perderse también es una forma de llegar.",
-      photo: "/photos/story-3.svg",
-    },
-    {
-      year: "TODO",
-      title: "La pregunta",
-      text: "Hubo nervios, risas y lágrimas que nadie pidió. Y una sola respuesta, la más fácil que hemos dado en la vida: sí.",
-      photo: "/photos/story-4.svg",
-    },
-  ],
+    // {
+    //   year: "TODO",
+    //   title: "Cómo nos conocimos",
+    //   text: "Nadie lo planeó. Una conversación que debía durar cinco minutos se alargó hasta que se apagaron las luces, y desde esa noche supimos que algo había empezado.",
+    //   photo: "/photos/imagen1.jpeg",
+    // },
+    // {
+    //   year: "TODO",
+    //   title: "La primera vez que dijimos nosotros",
+    //   text: "Sin darnos cuenta, los planes empezaron a conjugarse en plural. Un café se volvió costumbre, y la costumbre se volvió hogar.",
+    //   photo: "/photos/story-2.svg",
+    // },
+    // {
+    //   year: "TODO",
+    //   title: "Aprendimos a viajar juntos",
+    //   text: "Nos perdimos en caminos que no estaban en el mapa y descubrimos que, a tu lado, perderse también es una forma de llegar.",
+    //   photo: "/photos/story-3.svg",
+    // },
+    // {
+    //   year: "TODO",
+    //   title: "La pregunta",
+    //   text: "Hubo nervios, risas y lágrimas que nadie pidió. Y una sola respuesta, la más fácil que hemos dado en la vida: sí.",
+    //   photo: "/photos/story-4.svg",
+    // },
+  ] as readonly { year: string; title: string; text: string; photo: string }[],
   personalMessage: {
     greeting: "Querido(a)",
     fallback:
@@ -62,17 +63,19 @@ export const wedding = {
       kind: "ceremonia",
       name: "Parroquia Nuestra Señora del Rosario",
       address: "Itagüí, Antioquia",
-      time: "16:00",
+      time: "4:00 p.m.",
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=Parroquia%20Nuestra%20Se%C3%B1ora%20del%20Rosario%20Itag%C3%BC%C3%AD%20Antioquia",
-      blurb: "Empezamos con la Misa, donde nos prometeremos el para siempre con la luz de la tarde como testigo.",
+      blurb: "Empezamos con la Misa, donde nos prometeremos el para siempre con la luz de la tarde como testigo. Favor puntualidad, la ceremonia empieza a las 4:00 p.m. y no habrá acceso después de esa hora.",
+      photo: { src: "/photos/parroquia.png", width: 657, height: 808 },
     },
     {
       kind: "recepción",
-      name: "Prado Alto Apartamentos, Salón Social",
+      name: "Calle 28 sur #27-100, Prado Alto Apartamentos, Salón Social",
       address: "Envigado, Antioquia",
-      time: "TODO: hora de la recepción",
+      time: "18:00",
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=Prado%20Alto%20Apartamentos%20Sal%C3%B3n%20Social%20Envigado%20Antioquia",
       blurb: "Después de la Misa, la mesa larga, la música y las ganas de quedarnos hasta tarde contigo.",
+      photo: { src: "/photos/pradoalto.png", width: 970, height: 789 },
     },
   ],
   eventsUi: { directions: "Cómo llegar" },
@@ -80,36 +83,47 @@ export const wedding = {
   // TODO: confirm times after the Misa; only 16:00 is confirmed.
   itinerary: [
     { time: "16:00", label: "Misa", note: "Llega unos minutos antes para acomodarte con calma.", icon: "rings" },
-    { time: "17:30", label: "Cóctel", note: "Un brindis para empezar a celebrar.", icon: "glass" },
+    { time: "18:00", label: "Recepción", note: "Un brindis para empezar a celebrar.", icon: "glass" },
     { time: "19:00", label: "Cena", note: "Una mesa pensada para compartir.", icon: "plate" },
-    { time: "21:00", label: "Baile", note: "Trae tus mejores pasos y tus ganas de reír.", icon: "dance" },
+    { time: "20:00", label: "Baile", note: "Trae tus mejores pasos y tus ganas de reír.", icon: "dance" },
   ],
   dressCode: {
-    label: "Formal / Etiqueta",
-    paletteTitle: "Colores que nos encantaría ver",
-    avoidTitle: "Mejor guardemos para la novia",
-    palette: ["#8E6FB0", "#B79BD3", "#6B8F71", "#473A52"], // TODO: confirm palette with the couple
-    avoid: ["blanco", "marfil", "crema"], // TODO: confirm
-    notes:
-      "Queremos verte elegante y cómodo(a). Los lilas, los verdes suaves y los tonos ciruela acompañan muy bien el paisaje. El blanco y el marfil los guardamos para la novia.",
+    label: "Vestimenta",
+    notes: "Queremos verte elegante y cómodo(a). Solo te pedimos tener en cuenta estos detalles.",
+    avoidTitle: "Nadie de estos colores",
+    avoid: [
+      { name: "lila", hex: "#B79BD3" },
+      { name: "rojo", hex: "#B23A3A" },
+      { name: "blanco", hex: "#FAF8F5" },
+    ],
+    her: { title: "Ellas", text: "Cualquier color, excepto lila, rojo o blanco." },
+    him: {
+      title: "Ellos",
+      text: "Camisa negra de manga larga y pantalón o jean oscuro.",
+      palette: [
+        { name: "camisa negra", hex: "#1E1B21" },
+        { name: "jean oscuro", hex: "#2A3347" },
+      ],
+    },
   },
   gifts: {
     mode: "lluvia-de-sobres",
     title: "Tu presencia es nuestro mejor regalo",
-    text: "Tenerte ahí ya es más de lo que soñamos. Si quieres tener un detalle con nosotros, preparamos una lluvia de sobres que nos ayudará a empezar esta nueva vida. Sin compromiso, con todo el cariño.",
+    text: "Tenerte ahí ya es más de lo que soñamos. Si deseas tener un detalle con nosotros, hemos elegido la tradición de la lluvia de sobres",
+    verse: "Cordón de tres dobleces no se rompe pronto",
     bank: null,
     revealButton: "Ver datos para el detalle",
     copyButton: "Copiar número",
     copied: "Copiado",
     copyFailed: "No pudimos copiar, inténtalo de nuevo",
   },
-  // recommendations: {
-  //   titles: { lodging: "Hospedaje", transport: "Transporte", weather: "Clima", adultsOnly: "Solo adultos" },
-  //   lodging: "Te sugerimos reservar con tiempo. TODO: hoteles cercanos y códigos de descuento.",
-  //   transport: "Habrá espacio para parquear. Si vas a brindar con nosotros, coordina un conductor o un taxi de regreso. TODO: transporte de cortesía.",
-  //   adultsOnly: "Será una celebración solo para adultos. Gracias por entender que queremos cuidar cada detalle.",
-  //   weather: "A esa hora suele refrescar. Trae un abrigo ligero para la noche.",
-  // },
+  recommendations: {
+    titles: { lodging: "Hospedaje", transport: "Transporte", weather: "Clima", adultsOnly: "Solo adultos" },
+    lodging: "Te sugerimos reservar con tiempo. TODO: hoteles cercanos y códigos de descuento.",
+    transport: "Habrá espacio para parquear. Si vas a brindar con nosotros, coordina un conductor o un taxi de regreso. TODO: transporte de cortesía.",
+    adultsOnly: "Será una celebración solo para adultos. Gracias por entender que queremos cuidar cada detalle.",
+    weather: "A esa hora suele refrescar. Trae un abrigo ligero para la noche.",
+  },
   rsvp: {
     title: "¿Nos acompañas?",
     intro: "Cuéntanos quiénes vendrán. Solo te tomará un minuto.",
@@ -151,19 +165,10 @@ export const wedding = {
   },
   galleryAlt: [
     "Un momento juntos, 1",
-    "Un momento juntos, 2",
-    "Un momento juntos, 3",
-    "Un momento juntos, 4",
-    "Un momento juntos, 5",
-    "Un momento juntos, 6",
+
   ],
   gallery: [
-    "/photos/g-1.svg",
-    "/photos/g-2.svg",
-    "/photos/g-3.svg",
-    "/photos/g-4.svg",
-    "/photos/g-5.svg",
-    "/photos/g-6.svg",
+    "/photos/imagen2.jpeg",
   ],
 } as const;
 

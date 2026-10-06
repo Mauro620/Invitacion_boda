@@ -30,7 +30,7 @@ const weekdays = Array.from({ length: 7 }, (_, i) =>
     new Date(Date.UTC(2023, 0, 1 + i)),
   ),
 );
-const unit = (n: number, u: "day" | "hour" | "minute") =>
+const unit = (n: number, u: "day" | "hour" | "minute" | "second") =>
   new Intl.NumberFormat(LOCALE, { style: "unit", unit: u, unitDisplay: "long" })
     .formatToParts(n)
     .filter((p) => p.type === "unit")
@@ -67,7 +67,7 @@ function useCountdown(): Countdown | null {
   useEffect(() => {
     const tick = () => setC(countdown(start, new Date()));
     tick();
-    const id = setInterval(tick, 15_000);
+    const id = setInterval(tick, 1_000);
     return () => clearInterval(id);
   }, []);
   return c;
@@ -84,6 +84,7 @@ export function DateTime() {
         [c.days, "day"],
         [c.hours, "hour"],
         [c.minutes, "minute"],
+        [c.seconds, "second"],
       ] as const)
     : null;
 
@@ -153,7 +154,7 @@ export function DateTime() {
             {c && !c.past && cells && (
               <>
                 <p className="text-base text-ink-soft">{copy.countdownLabel}</p>
-                <dl className="mt-s grid grid-cols-3 divide-x divide-line">
+                <dl className="mt-s grid grid-cols-4 divide-x divide-line">
                   {cells.map(([n, u]) => (
                     <div key={u} className="px-2xs text-center first:pl-0 last:pr-0">
                       <dd className="display m-0 text-3xl tabular-nums text-accent">{n}</dd>

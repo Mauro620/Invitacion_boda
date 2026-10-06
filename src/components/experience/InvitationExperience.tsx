@@ -7,15 +7,15 @@ import { ChapterProgress, MusicButton, RsvpFab } from "@/components/sections/Con
 import { Envelope } from "@/components/sections/Envelope";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
-import { Story } from "@/components/sections/Story";
+// import { Story } from "@/components/sections/Story";
 import { PersonalMessage } from "@/components/sections/PersonalMessage";
 import { DateTime } from "@/components/sections/DateTime";
 import { Venues } from "@/components/sections/Venues";
-import { Itinerary } from "@/components/sections/Itinerary";
+// import { Itinerary } from "@/components/sections/Itinerary";
 import { DressCode } from "@/components/sections/DressCode";
 import { Gallery } from "@/components/sections/Gallery";
 import { Gifts } from "@/components/sections/Gifts";
-import { Recommendations } from "@/components/sections/Recommendations";
+// import { Recommendations } from "@/components/sections/Recommendations";
 import { Rsvp } from "@/components/sections/Rsvp";
 import { Closing } from "@/components/sections/Closing";
 
@@ -153,17 +153,17 @@ export function InvitationExperience({
             <MusicButton playing={playing} onToggle={toggleMusic} />
             <Hero guestName={guestName} />
             <Intro />
-            <Story />
+            {/* <Story /> */}
             <PersonalMessage guestName={guestName} message={personalMessage} />
             <div ref={dateRef}>
               <DateTime />
             </div>
             <Venues />
-            <Itinerary />
+            {/* <Itinerary /> */}
             <DressCode />
             <Gallery />
             <Gifts />
-            <Recommendations />
+            {/* <Recommendations /> */}
             <div id="rsvp" ref={rsvpRef}>
               <Rsvp
                 guestName={guestName}

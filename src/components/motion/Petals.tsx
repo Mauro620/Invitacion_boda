@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { clampPetals } from "./petals";
+import { clampPetals } from "./petalCount";
 import { useReducedMotion } from "./useReducedMotion";
 
 type Props = {

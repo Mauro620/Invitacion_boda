@@ -13,7 +13,7 @@ The couple chose **boho** (boho layout and typography with a white and lilac pal
 
 | Paper / ink | Accent / metal | Display + body | Script |
 |---|---|---|---|
-| warm white / plum ink | lilac / lilac-gray silver | Alegreya | Mrs Saint Delafield |
+| warm white / plum ink | lilac / lilac-gray silver | Alegreya | Allura |
 
 Tailwind utilities (mapped in `src/app/globals.css` via `@theme inline`):
 

@@ -29,8 +29,10 @@ export function Hero({ guestName }: Props) {
           style={{ borderRadius: "999px 999px var(--round-m) var(--round-m)" }}
         >
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(/photos/cover.svg)" }}
+            role="img"
+            aria-label={`${partnerA} y ${partnerB}`}
+            className="absolute inset-0 bg-cover bg-[center_30%]"
+            style={{ backgroundImage: `url(${wedding.hero.photo})` }}
             initial={false}
             animate={reduced ? { scale: 1.04 } : { scale: [1.04, 1.16] }}
             transition={{ duration: 24, repeat: Infinity, repeatType: "reverse", ease: "linear" }}

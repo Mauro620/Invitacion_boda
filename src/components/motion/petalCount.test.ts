@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { clampPetals } from "./petals";
+import { clampPetals } from "./petalCount";
 
 it("clamps petal count to 0..60", () => {
   expect(clampPetals(500)).toBe(60);
