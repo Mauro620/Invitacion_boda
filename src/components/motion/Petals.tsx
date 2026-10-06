@@ -10,6 +10,8 @@ type Props = {
   /** Any CSS color; defaults to the accent-soft token. */
   color?: string;
   className?: string;
+  /** One-shot burst from a point (fractions of the canvas, 0-1): petals fly out, then fall and fade. */
+  burst?: { x: number; y: number };
 };
 
 type Petal = {
@@ -21,10 +23,11 @@ type Petal = {
   rot: number;
   vr: number;
   ph: number;
+  life?: number;
 };
 
 /** Slow falling petals on a canvas. Renders nothing under reduced motion. */
-export function Petals({ count = 24, color = "var(--accent-soft)", className }: Props) {
+export function Petals({ count = 24, color = "var(--accent-soft)", className, burst }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotion();
 
@@ -45,6 +48,49 @@ export function Petals({ count = 24, color = "var(--accent-soft)", className }: 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
+    if (burst) {
+      const ox = burst.x * w;
+      const oy = burst.y * h;
+      const ps: Petal[] = Array.from({ length: clampPetals(count) }, () => {
+        const a = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.5;
+        const sp = 3 + Math.random() * 6;
+        return {
+          x: ox, y: oy, r: 4 + Math.random() * 5,
+          vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+          rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.18,
+          ph: Math.random() * 6.28, life: 0,
+        };
+      });
+      const start = performance.now();
+      const frame = (t: number) => {
+        const k = (t - start) / 2200;
+        ctx.clearRect(0, 0, w, h);
+        if (k >= 1) return;
+        ctx.fillStyle = fill;
+        for (const p of ps) {
+          p.vx *= 0.97;
+          p.vy = p.vy * 0.97 + 0.09;
+          p.x += p.vx + Math.sin(t / 400 + p.ph) * 0.3;
+          p.y += p.vy;
+          p.rot += p.vr;
+          ctx.globalAlpha = 0.85 * Math.min(1, (1 - k) * 2.5);
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, 6.28);
+          ctx.fill();
+          ctx.restore();
+        }
+        raf = requestAnimationFrame(frame);
+      };
+      raf = requestAnimationFrame(frame);
+      window.addEventListener("resize", resize);
+      return () => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener("resize", resize);
+      };
+    }
     const mk = (initial: boolean): Petal => ({
       x: Math.random() * w,
       y: initial ? Math.random() * h : -20,
@@ -82,7 +128,7 @@ export function Petals({ count = 24, color = "var(--accent-soft)", className }: 
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, [count, reduced]);
+  }, [count, reduced, burst]);
 
   if (reduced) return null;
   return (

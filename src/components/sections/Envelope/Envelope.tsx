@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { curve, useReducedMotion } from "@/components/motion";
+import { Petals, useReducedMotion } from "@/components/motion";
 import { FlowerSprig } from "@/components/ui/Flowers";
 import { wedding } from "@/content/wedding";
 
@@ -13,7 +13,8 @@ type Props = {
 
 const FLAP_TIP = "54%";
 const SEAL_IMG = "url(/textures/wax-seal.svg)";
-const inOutQuart = [0.76, 0, 0.24, 1] as const;
+const softOvershoot = [0.34, 1.35, 0.64, 1] as const;
+const silk = [0.45, 0, 0.15, 1] as const;
 const sealHalf = { backgroundImage: SEAL_IMG, backgroundSize: "100% 100%" } as const;
 const faceBase = "absolute inset-0 [backface-visibility:hidden]";
 const flapClip = "polygon(0 0, 100% 0, 50% 100%)";
@@ -24,6 +25,7 @@ export function Envelope({ guestName, onOpen }: Props) {
   const reduced = useReducedMotion();
   const [opened, setOpened] = useState(false);
   const [gone, setGone] = useState(false);
+  const [origin, setOrigin] = useState<{ x: number; y: number } | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Lock scroll while the envelope covers the page; focus the only control.
@@ -43,29 +45,45 @@ export function Envelope({ guestName, onOpen }: Props) {
   const handleOpen = () => {
     if (opened) return;
     setOpened(true);
+    const r = buttonRef.current?.getBoundingClientRect();
+    if (r && !reduced) {
+      setOrigin({
+        x: (r.left + r.width / 2) / window.innerWidth,
+        y: (r.top + r.height * 0.54) / window.innerHeight,
+      });
+    }
     onOpen(); // inside the gesture: the parent starts the music here
     if (typeof navigator !== "undefined") navigator.vibrate?.(20);
   };
 
-  // Timings (s): seal 0-0.5, flap 0.3-1.3, letter 1.0-1.9, overlay fade 2.0-2.6.
+  // Timings (s): tilt 0-0.5, seal 0-0.5 + petals, flap 0.2-1.2, letter 0.8-1.8, dissolve 1.9-2.8.
   const t = (o: object) => (reduced ? { duration: 0 } : o);
 
   return (
     <motion.div
       className="paper fixed inset-0 z-50 grid place-items-center overflow-hidden"
       initial={false}
-      animate={{ opacity: opened ? 0 : 1 }}
-      transition={{ duration: reduced ? 0.2 : 0.6, delay: opened && !reduced ? 2 : 0, ease: curve.outQuart }}
+      animate={{ opacity: opened ? 0 : 1, scale: opened && !reduced ? 1.04 : 1 }}
+      transition={{ duration: reduced ? 0.2 : 0.9, delay: opened && !reduced ? 1.9 : 0, ease: silk }}
       style={{ pointerEvents: opened ? "none" : "auto" }}
       onAnimationComplete={() => opened && setGone(true)}
     >
+      {origin && !reduced && (
+        <Petals burst={origin} count={36} className="pointer-events-none absolute inset-0 z-[7]" />
+      )}
       <div className="flex w-full flex-col items-center gap-l px-gutter">
+        <motion.div
+          className="w-[min(84vw,22rem)]"
+          initial={false}
+          animate={opened && !reduced ? { y: [0, -10, 0], rotate: [0, -2.5, 0], scale: [1, 1.04, 1] } : { y: 0, rotate: 0, scale: 1 }}
+          transition={{ duration: 0.9, times: [0, 0.35, 1], ease: silk }}
+        >
         <button
           ref={buttonRef}
           type="button"
           onClick={handleOpen}
           disabled={opened}
-          className="relative block w-[min(84vw,22rem)] cursor-pointer rounded-s [perspective:1000px] [aspect-ratio:10/7] touch-manipulation"
+          className="relative block w-full cursor-pointer rounded-s [perspective:1000px] [aspect-ratio:10/7] touch-manipulation"
         >
           {/* Accessible name = visible letter text + hint (keeps visible text inside the name). */}
           <span className="sr-only">{wedding.envelope.hint}</span>
@@ -81,8 +99,12 @@ export function Envelope({ guestName, onOpen }: Props) {
               className="paper absolute inset-x-[6%] top-[8%] bottom-[10%] flex flex-col items-center justify-center gap-2xs rounded-s px-s text-center shadow-lifted"
               style={{ zIndex: 2 }}
               initial={false}
-              animate={opened ? { y: "-68%", scale: 1.1 } : { y: 0, scale: 1 }}
-              transition={t({ duration: 0.9, delay: 1, ease: curve.outQuint })}
+              animate={opened ? { y: "-68%", scale: 1.1, rotate: [0, 3, -1.2, 0] } : { y: 0, scale: 1, rotate: 0 }}
+              transition={t({
+                y: { duration: 1, delay: 0.8, ease: softOvershoot },
+                scale: { duration: 1, delay: 0.8, ease: softOvershoot },
+                rotate: { duration: 1.2, delay: 0.8, times: [0, 0.4, 0.75, 1], ease: "easeInOut" },
+              })}
             >
               <span className="display text-xl text-accent">{monogram}</span>
               <span className="text-xs leading-snug text-ink-soft">{wedding.envelope.line}</span>
@@ -106,10 +128,10 @@ export function Envelope({ guestName, onOpen }: Props) {
               className="absolute inset-x-0 top-0 block [transform-style:preserve-3d]"
               style={{ height: FLAP_TIP, transformOrigin: "top", zIndex: 4 }}
               initial={false}
-              animate={opened ? { rotateX: 180, zIndex: 1 } : { rotateX: 0, zIndex: 4 }}
+              animate={opened ? { rotateX: [0, 100, 186, 180], zIndex: 1 } : { rotateX: 0, zIndex: 4 }}
               transition={t({
-                rotateX: { duration: 1, delay: 0.3, ease: inOutQuart },
-                zIndex: { duration: 0, delay: 0.8 },
+                rotateX: { duration: 1.1, delay: 0.2, times: [0, 0.45, 0.85, 1], ease: silk },
+                zIndex: { duration: 0, delay: 0.65 },
               })}
             >
               <span
@@ -123,6 +145,17 @@ export function Envelope({ guestName, onOpen }: Props) {
                 className={faceBase}
                 style={{ clipPath: flapClip, background: "var(--paper-deep)", transform: "rotateX(180deg)" }}
               />
+              <motion.span
+                className={faceBase}
+                style={{
+                  clipPath: flapClip,
+                  background: "linear-gradient(180deg, transparent 30%, color-mix(in oklch, var(--ink) 28%, transparent))",
+                  transform: "translateZ(0.5px)",
+                }}
+                initial={false}
+                animate={{ opacity: opened && !reduced ? [0, 1, 0] : 0 }}
+                transition={{ duration: 0.9, delay: 0.2, ease: "easeInOut" }}
+              />
             </motion.span>
 
             {/* Wax seal: breaks in two */}
@@ -135,14 +168,14 @@ export function Envelope({ guestName, onOpen }: Props) {
                 style={{ ...sealHalf, clipPath: "inset(0 50% 0 0)", filter: "drop-shadow(0 3px 3px color-mix(in oklch, var(--seal) 45%, transparent))" }}
                 initial={false}
                 animate={opened ? { x: "-30%", y: "18%", rotate: -16, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
-                transition={t({ duration: 0.6, ease: curve.outQuart, opacity: { duration: 0.35, delay: 0.25 } })}
+                transition={t({ duration: 0.7, ease: softOvershoot, opacity: { duration: 0.35, delay: 0.25 } })}
               />
               <motion.span
                 className="absolute inset-0 block"
                 style={{ ...sealHalf, clipPath: "inset(0 0 0 50%)", filter: "drop-shadow(0 3px 3px color-mix(in oklch, var(--seal) 45%, transparent))" }}
                 initial={false}
                 animate={opened ? { x: "30%", y: "26%", rotate: 12, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
-                transition={t({ duration: 0.6, ease: curve.outQuart, opacity: { duration: 0.35, delay: 0.25 } })}
+                transition={t({ duration: 0.7, ease: softOvershoot, opacity: { duration: 0.35, delay: 0.25 } })}
               />
             </span>
           </span>
@@ -154,6 +187,7 @@ export function Envelope({ guestName, onOpen }: Props) {
             <FlowerSprig variant="bud" delay={0.3} className="w-full" />
           </span>
         </button>
+        </motion.div>
 
         <motion.p
           className="text-xs text-ink-soft"

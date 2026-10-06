@@ -17,6 +17,7 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Gifts } from "@/components/sections/Gifts";
 // import { Recommendations } from "@/components/sections/Recommendations";
 import { Rsvp } from "@/components/sections/Rsvp";
+import { SectionDivider } from "@/components/sections/SectionDivider";
 import { Closing } from "@/components/sections/Closing";
 
 export type ExperienceGuest = {
@@ -153,17 +154,24 @@ export function InvitationExperience({
             <MusicButton playing={playing} onToggle={toggleMusic} />
             <Hero guestName={guestName} />
             <Intro />
+            <SectionDivider from="paper" to="tint" />
             {/* <Story /> */}
             <PersonalMessage guestName={guestName} message={personalMessage} />
+            <SectionDivider from="tint" to="paper" />
             <div ref={dateRef}>
               <DateTime />
             </div>
+            <SectionDivider from="paper" to="tint" />
             <Venues />
+            <SectionDivider from="tint" to="paper" />
             {/* <Itinerary /> */}
             <DressCode />
+            <SectionDivider from="paper" to="tint" />
             <Gallery />
+            <SectionDivider from="tint" to="paper" />
             <Gifts />
             {/* <Recommendations /> */}
+            <SectionDivider from="paper" to="tint" />
             <div id="rsvp" ref={rsvpRef}>
               <Rsvp
                 guestName={guestName}
@@ -175,6 +183,7 @@ export function InvitationExperience({
                 onSubmit={onSubmit}
               />
             </div>
+            <SectionDivider from="tint" to="paper" />
             <Closing attending={attending} guestName={guestName} />
             <RsvpFab visible={passedDate && !rsvpInView} href="#rsvp" />
           </>

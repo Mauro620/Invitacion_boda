@@ -5,7 +5,7 @@ export function Intro() {
   const { lines } = wedding.intro;
   return (
     <section
-      className="paper relative isolate flex min-h-[844px] items-center justify-center overflow-hidden px-gutter py-chapter"
+      className="paper relative isolate flex items-center justify-center overflow-hidden px-gutter py-xl"
     >
       {/* Soft lilac light, sits under the grain-blended paper content. */}
       <div

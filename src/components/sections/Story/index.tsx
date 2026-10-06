@@ -38,7 +38,7 @@ function Photo({ src, alt }: { src: string; alt: string }) {
 export function Story() {
   const items = wedding.story;
   return (
-    <section className="paper min-h-[844px] px-gutter py-chapter">
+    <section className="paper px-gutter py-chapter">
       <FlowerDivider className="mb-l" />
       <ol className="mx-auto flex max-w-md flex-col items-center">
         {items.map((m, i) => (

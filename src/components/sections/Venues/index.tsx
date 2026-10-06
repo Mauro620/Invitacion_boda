@@ -26,7 +26,7 @@ function Dir({ href, children }: { href: string | null; children: ReactNode }) {
 
 export function Venues() {
   return (
-    <section className="paper px-gutter py-chapter text-ink">
+    <section className="paper-tint px-gutter py-chapter text-ink">
       <div className="mx-auto flex max-w-[28rem] flex-col gap-2xl">
         {events.map((e, i) => {
           const flip = i % 2 === 1;
