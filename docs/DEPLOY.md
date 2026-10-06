@@ -19,7 +19,7 @@ The entrypoint runs `drizzle-kit migrate` and then `node server.js`.
    - `DATABASE_URL=${{Postgres.DATABASE_URL}}`
    - `SESSION_SECRET` (32+ random chars, e.g. `openssl rand -base64 32`)
    - `ADMIN_USERS` (`email:bcryptHash,email:bcryptHash`)
-   - `PUBLIC_BASE_URL` (the public URL, no trailing slash)
+   - `PUBLIC_BASE_URL` (the public URL including `https://`, no trailing slash)
    - `NODE_ENV=production`
 4. `railway.json` already sets the Dockerfile builder and healthcheck path `/api/health`. Leave **App Sleeping** disabled so the invitation always answers instantly.
 5. Domain: free `*.up.railway.app` or a custom domain (CNAME to the Railway target).

@@ -8,6 +8,7 @@ import { requireAdmin } from "@/lib/auth";
 import { normalizeName, parseImport, toCsv } from "@/lib/csv";
 import { generateToken } from "@/lib/tokens";
 import { computeStats, invitationStatus, parseDeadline } from "@/lib/stats";
+import { baseUrl } from "@/lib/base-url";
 import { buildInviteMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 import type {
   CommentRow,
@@ -25,7 +26,6 @@ import type {
   WhatsAppLink,
 } from "./admin.types";
 
-const baseUrl = () => (process.env.PUBLIC_BASE_URL ?? "http://localhost:3000").replace(/\/+$/, "");
 const urlFor = (token: string) => `${baseUrl()}/i/${token}`;
 const iso = (d: Date | null) => (d ? d.toISOString() : null);
 const idSchema = z.string().uuid();

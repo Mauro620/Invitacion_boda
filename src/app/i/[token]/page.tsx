@@ -5,6 +5,7 @@ import { recordOpen, submitRsvp } from "@/app/actions/rsvp";
 import { InvitationExperience } from "@/components/experience/InvitationExperience";
 import { wedding } from "@/content/wedding";
 import { isLikelyBot } from "@/lib/bots";
+import { baseUrl } from "@/lib/base-url";
 import { getInvitationByToken } from "@/lib/invitation";
 
 // Per-guest data: never prerender or cache.
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { token } = await params;
   const data = await getInvitationByToken(token).catch(() => null);
   return {
-    metadataBase: new URL(process.env.PUBLIC_BASE_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(baseUrl()),
     title: data ? `${names} · ${data.invitation.displayName}` : names,
     description: `${wedding.date.text}. ${wedding.envelope.line}`,
     robots: { index: false, follow: false },
