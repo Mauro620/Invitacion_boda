@@ -32,7 +32,7 @@
   --space-l: clamp(2rem, 1.7rem + 1.2vw, 3rem);
   --space-xl: clamp(3rem, 2.4rem + 2.4vw, 5rem);
   --space-2xl: clamp(4.5rem, 3.4rem + 4.5vw, 8rem);
-  --space-chapter: clamp(6rem, 4rem + 8vw, 12rem);
+  --space-chapter: clamp(3.5rem, 2.8rem + 2.4vw, 5.5rem);
   --gutter: clamp(1.25rem, 0.9rem + 1.5vw, 2.5rem);
 
   /* Motion: reveals 600-1200ms, exponential ease-out, no bounce. */
@@ -71,6 +71,7 @@
 
   --paper: oklch(98.4% 0.006 315); /* soft warm white, tinted not pure */
   --paper-deep: oklch(95.6% 0.014 310);
+  --tint: oklch(95.6% 0.026 305); /* section tint: very light lilac */
   --table: oklch(94.5% 0.012 305); /* very light lilac-tinted neutral backdrop */
   --ink: oklch(27% 0.035 318); /* plum-tinted near black */
   --ink-soft: oklch(45% 0.03 315);

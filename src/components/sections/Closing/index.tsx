@@ -12,7 +12,7 @@ const initials = `${wedding.couple.partnerA[0]} & ${wedding.couple.partnerB[0]}`
 export function Closing({ attending, guestName }: Props) {
   const msg = attending === true ? c.attending : attending === false ? c.notAttending : c.neutral;
   return (
-    <section className="paper relative flex min-h-dvh items-center justify-center overflow-hidden px-gutter py-chapter">
+    <section className="paper relative flex min-h-[80svh] items-center justify-center overflow-hidden px-gutter py-chapter">
       {attending === true && (
         <div className="pointer-events-none absolute inset-0">
           <Petals count={40} />

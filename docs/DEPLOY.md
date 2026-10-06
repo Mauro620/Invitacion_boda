@@ -21,7 +21,7 @@ The entrypoint runs `drizzle-kit migrate` and then `node server.js`.
    - `ADMIN_USERS` (`email:bcryptHash,email:bcryptHash`)
    - `PUBLIC_BASE_URL` (the public URL, no trailing slash)
    - `NODE_ENV=production`
-4. Settings: healthcheck path `/api/health`. Leave **App Sleeping** disabled so the invitation always answers instantly.
+4. `railway.json` already sets the Dockerfile builder and healthcheck path `/api/health`. Leave **App Sleeping** disabled so the invitation always answers instantly.
 5. Domain: free `*.up.railway.app` or a custom domain (CNAME to the Railway target).
 6. Uploads from the admin: add a **Volume** to the app service mounted at `/app/uploads`.
 7. Migrations run automatically on each deploy (entrypoint). Set `SEED=1` only for the first demo deploy, then remove it.

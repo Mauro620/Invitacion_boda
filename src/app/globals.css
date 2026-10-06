@@ -7,6 +7,7 @@
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
   --color-table: var(--table);
+  --color-tint: var(--tint);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-accent: var(--accent);
@@ -69,6 +70,12 @@ body {
 /* Paper surface: grain over flat color. Apply to any chapter or card. */
 @utility paper {
   background-color: var(--paper);
+  background-image: var(--texture-grain), var(--texture-fibers);
+  background-blend-mode: multiply;
+}
+
+@utility paper-tint {
+  background-color: var(--tint);
   background-image: var(--texture-grain), var(--texture-fibers);
   background-blend-mode: multiply;
 }

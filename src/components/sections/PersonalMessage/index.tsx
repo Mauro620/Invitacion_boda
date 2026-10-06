@@ -9,7 +9,7 @@ export function PersonalMessage({ guestName, message }: Props) {
   const { partnerA, partnerB } = wedding.couple;
   const body = message?.trim() ? message : fallback;
   return (
-    <section className="flex min-h-[844px] items-center justify-center bg-paper-deep px-gutter py-xl">
+    <section className="flex items-center justify-center bg-tint px-gutter py-xl">
       <Reveal className="w-full max-w-md -rotate-1">
         <article className="paper relative rounded-s px-l py-xl shadow-lifted">
           <FlowerCorner position="tr" className="-top-4 -right-3 w-24" delay={0.3} />

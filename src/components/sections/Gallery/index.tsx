@@ -7,7 +7,7 @@ export function Gallery() {
   const couple = `${partnerA} y ${partnerB}`;
   const photos = wedding.gallery;
   return (
-    <section className="paper relative flex min-h-[844px] items-center overflow-hidden py-xl">
+    <section className="paper-tint relative overflow-hidden py-xl">
       <FlowerCorner position="tl" className="top-0 left-0 w-24" />
       <FlowerCorner position="br" className="right-0 bottom-0 w-24" delay={0.3} />
       <div
