@@ -90,7 +90,7 @@ export function Rsvp({
   }
 
   return (
-    <section className="paper px-gutter py-chapter">
+    <section className="paper-tint px-gutter py-chapter">
       <div className="mx-auto flex max-w-(--measure) flex-col gap-m">
         {/* Persistent live region: announces the saved state (a region mounted with its text is often skipped). */}
         <div aria-live="polite" className="sr-only">
